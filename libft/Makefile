@@ -6,7 +6,7 @@
 #    By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/12 21:56:14 by frfrey       #+#   ##    ##    #+#        #
-#    Updated: 2019/11/19 17:06:45 by frfrey      ###    #+. /#+    ###.fr      #
+#    Updated: 2019/11/20 16:33:20 by frfrey      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -63,11 +63,9 @@ $(NAME):	$(OBJS) $(HEADER)
 			@ar rcs $(NAME) $(OBJS)
 
 clean:
-			@echo "\x1b[36m[OK] \033[0m \x1b[31m Removing File object\033[0m"
 			@$(RM) $(OBJS)
 
 fclean:		clean
-			@echo "\x1b[36m[OK] \033[0m \x1b[31m Removing All\033[0m"
 			@$(RM) $(NAME)
 
 re:			fclean all
