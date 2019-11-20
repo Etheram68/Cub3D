@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_pf_define.h                                   .::    .:/ .      .::   */
+/*   ft_define.h                                      .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/19 16:28:21 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/19 17:01:04 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/20 16:43:50 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef FT_PF_DEFINE_H
-# define FT_PF_DEFINE_H
+#ifndef FT_DEFINE_H
+# define FT_DEFINE_H
 
 # define _BLACK_ "\e[30m"
 # define _RED_ "\e[31m"

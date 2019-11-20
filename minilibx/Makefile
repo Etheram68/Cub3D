@@ -17,7 +17,7 @@ all: MINILIB $(NOM)
 $(NOM):	$(OBJ)
 	@ar -rc $(NOM) $(OBJ)
 	@ranlib $(NOM)
-	@echo "\033[0;32m[OK] \033[0m \033[0;33m Compiling Minilibx\033[0m"
+	@echo "\x1b[36m\n[OK] \033[0m \x1b[35m Compiling Minilibx\033[0m"
 
 clean:
 	@rm -f $(NOM) $(OBJ) *~

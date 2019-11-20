@@ -6,7 +6,7 @@
 #    By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/12 21:56:14 by frfrey       #+#   ##    ##    #+#        #
-#    Updated: 2019/11/20 16:33:20 by frfrey      ###    #+. /#+    ###.fr      #
+#    Updated: 2019/11/20 16:43:29 by frfrey      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -14,7 +14,12 @@
 #								VARIABLES									   #
 # **************************************************************************** #
 
-HEADER		=	includes/
+HEAD_PATH	=	includes
+
+HEAD_NAME	=	ft_libft_header.h ft_define.h ft_pf_header.h ft_struct.h \
+				libft.h
+
+HEADER		=	$(addprefix $(HEAD_PATH)/,$(HEAD_NAME))
 
 SRC_PATH	=	sources
 
@@ -71,6 +76,7 @@ fclean:		clean
 re:			fclean all
 
 LIBFT:
+			@echo ---------------------------------------------
 			@echo "	_,  _ __, __, ___"
 			@echo "	|   | |_) |_   | "
 			@echo "	| , | |_) |    | "
