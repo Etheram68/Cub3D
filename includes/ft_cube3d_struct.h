@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_cube3d.h                                      .::    .:/ .      .::   */
+/*   ft_cube3d_struct.h                               .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/20 15:13:42 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/22 11:07:01 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/22 10:39:38 by frfrey       #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/22 10:42:25 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef FT_CUBE3D_H
-# define FT_CUBE3D_H
+#ifndef FT_CUBE3D_STRUCT_H
+# define FT_CUBE3D_STRUCT_H
 
-# include "../minilibx/mlx.h"
-# include "../libft/includes/libft.h"
-# include "ft_cube3d_struct.h"
+typedef struct	s_id
+{
+	void *mlx;
+	void *windows;
+}				t_id;
 
 #endif

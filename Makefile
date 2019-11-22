@@ -6,7 +6,7 @@
 #    By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/11/20 13:23:24 by frfrey       #+#   ##    ##    #+#        #
-#    Updated: 2019/11/21 10:33:11 by frfrey      ###    #+. /#+    ###.fr      #
+#    Updated: 2019/11/22 10:29:33 by frfrey      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -51,7 +51,7 @@ all:							$(MINILIBX) $(LIB) CUBE $(NAME)
 								@gcc $(FLAGS) -I $(HEADER) -c $< -o $@
 
 $(NAME):						$(OBJS) $(HEADER)
-								@gcc $(FLAGS) $(OBJS) -L minilibx $(GFLAGS) -L libft -o $(NAME) -lm
+								@gcc $(FLAGS) $(OBJS) -L minilibx $(GFLAGS) $(LIBS) -o $(NAME) -lm
 								@echo "\x1b[36m\n[OK] \033[0m \x1b[35m Compiling Cube3D\033[0m"
 
 $(MINILIBX) :
@@ -75,7 +75,7 @@ re:								fclean all
 
 CUBE:
 								@echo ---------------------------------------------
-								@echo "	 __,    __, __,  __   _ , "
+								@echo "	 __,,  ,__, __,  __   _ , "
 								@echo "	|   |  ||_)|__   __| |  \ "
 								@echo "	|__ |__||_)|__   __| |_ / "
 								@echo "	~~   ~~ ~  ~~    ~~  ~~   "
