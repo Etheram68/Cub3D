@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/22 10:39:38 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/23 12:01:51 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/23 18:08:33 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,6 +21,13 @@ typedef struct	s_id
 	int		color;
 }				t_id;
 
+typedef struct	s_color
+{
+	int		r;
+	int		g;
+	int		b;
+}				t_color;
+
 typedef struct	s_map
 {
 	int		**map;
@@ -33,8 +40,9 @@ typedef struct	s_map
 	char	*t_west;
 	char	*t_east;
 	char	*sprite;
-	int		color_top;
-	int		color_foot;
+	char	*color_top;
+	char	*color_foot;
+	t_color	rgb;
 }				t_map;
 
 #endif

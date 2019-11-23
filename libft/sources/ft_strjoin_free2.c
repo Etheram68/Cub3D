@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   init_struct.c                                    .::    .:/ .      .::   */
+/*   ft_strjoin_free2.c                               .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/23 12:12:15 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/23 18:08:48 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/23 18:04:59 by frfrey       #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/23 18:05:44 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#include "../includes/ft_cube3d.h"
+#include "../includes/libft.h"
 
-void	ft_init_struct(t_map *map)
+char	*ft_strjoin_free2(char *s1, char *s2)
 {
-	map->map = NULL;
-	map->map_heigth = 0;
-	map->map_width = 0;
-	map->w_height = 0;
-	map->w_width = 0;
-	map->t_north = NULL;
-	map->t_south = NULL;
-	map->t_west = NULL;
-	map->t_east = NULL;
-	map->sprite = NULL;
-	map->color_top = ft_strdup("");
-	map->color_foot = ft_strdup("");
-	map->rgb.r = 0;
-	map->rgb.g = 0;
-	map->rgb.b = 0;
+	size_t		i;
+	size_t		y;
+	char		*str;
+
+	i = 0;
+	y = 0;
+	if (s1 || s2)
+	{
+		if (!(str = (char *)malloc(sizeof(*str) *
+				((ft_strlen(s1) + ft_strlen(s2)) + 1))))
+			return (NULL);
+		while (s1 && s1[i])
+		{
+			str[i] = s1[i];
+			i++;
+		}
+		while (s2 && s2[y])
+			str[i++] = s2[y++];
+		str[i] = '\0';
+		free(s2);
+		return (str);
+	}
+	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/12 21:56:14 by frfrey       #+#   ##    ##    #+#        #
-#    Updated: 2019/11/20 16:43:29 by frfrey      ###    #+. /#+    ###.fr      #
+#    Updated: 2019/11/23 18:05:34 by frfrey      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -40,7 +40,7 @@ SRCS_NAME	=	ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
 				ft_intlen.c ft_putjoinfree.c ft_have.c \
 				ft_printf.c ft_printf_print.c ft_printf_parse.c \
 				ft_printf_assign.c ft_print_string.c ft_print_nb.c\
-				ft_print_flag.c ft_printf_bool.c \
+				ft_print_flag.c ft_printf_bool.c ft_strjoin_free2.c \
 
 SRCS 		= 	$(addprefix $(SRC_PATH)/,$(SRCS_NAME))
 

@@ -6,32 +6,12 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 12:48:43 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/23 15:26:22 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/23 18:14:50 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/ft_cube3d.h"
-
-void	ft_size_windows(char *line, t_map *map)
-{
-	int		i;
-
-	i = 0;
-	while (line[i])
-	{
-		if (line[i] == 'R')
-			map->w_height = ft_atoi(&line[++i]);
-		if (line[i] == ' ')
-			i++;
-		while (line[i] && ft_isdigit(line[i]))
-			i++;
-		if (ft_isdigit(line[++i]))
-			map->w_width = ft_atoi(&line[i]);
-	}
-	if (map->w_height == 0 || map->w_width == 0)
-		print_error("error: Size of windows is invalid");
-}
 
 void	ft_texture(char *line, t_map *map)
 {
@@ -59,6 +39,10 @@ void	ft_check_type(char *line, t_map *map)
 		ft_size_windows(line, map);
 	else if (is_texture(line[0]))
 		ft_texture(line, map);
+	else if (line[0] == 'F')
+		ft_take_color(line, map);
+	else if (line[0] == 'C')
+		ft_take_color(line, map);
 }
 
 int		ft_parse_map(int fd, t_map *map)
@@ -78,6 +62,7 @@ int		ft_parse_map(int fd, t_map *map)
 		if (ret == -1 && line == NULL)
 			return (print_error("error: Error when you read map for parsing"));
 		ft_check_type(line, map);
+		free(line);
 	}
 	map->map[y] = NULL;
 	return (1);
