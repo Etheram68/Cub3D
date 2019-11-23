@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_cube3d_struct.h                               .::    .:/ .      .::   */
+/*   bool.c                                           .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/22 10:39:38 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/23 12:01:51 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/23 11:28:03 by frfrey       #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/23 11:39:50 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef FT_CUBE3D_STRUCT_H
-# define FT_CUBE3D_STRUCT_H
+#include "../includes/ft_cube3d.h"
 
-typedef struct	s_id
+int		map_is_valide(char c)
 {
-	void	*mlx;
-	void	*windows;
-	int		color;
-}				t_id;
+	if (c == '0' || c == '1' || c == '2')
+		return (TRUE);
+	return (FALSE);
+}
 
-typedef struct	s_map
+int		map_player_start(char c)
 {
-	int		**map;
-	int		map_heigth;
-	int		map_width;
-	int		w_height;
-	int		w_width;
-	char	*t_north;
-	char	*t_south;
-	char	*t_west;
-	char	*t_east;
-	char	*sprite;
-	int		color_top;
-	int		color_foot;
-}				t_map;
-
-#endif
+	if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
+		return (TRUE);
+	return (FALSE);
+}

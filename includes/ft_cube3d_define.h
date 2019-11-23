@@ -1,40 +1,21 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_cube3d_struct.h                               .::    .:/ .      .::   */
+/*   ft_cube3d_define.h                               .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/22 10:39:38 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/23 12:01:51 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/22 17:59:01 by frfrey       #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/22 18:01:19 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef FT_CUBE3D_STRUCT_H
-# define FT_CUBE3D_STRUCT_H
+#ifndef FT_CUBE3D_DEFINE_H
+# define FR_CUBE3D_DEFINE_H
 
-typedef struct	s_id
-{
-	void	*mlx;
-	void	*windows;
-	int		color;
-}				t_id;
-
-typedef struct	s_map
-{
-	int		**map;
-	int		map_heigth;
-	int		map_width;
-	int		w_height;
-	int		w_width;
-	char	*t_north;
-	char	*t_south;
-	char	*t_west;
-	char	*t_east;
-	char	*sprite;
-	int		color_top;
-	int		color_foot;
-}				t_map;
+# define PI 3.1415f
+# define XCASE 66
+# define YCASE 77
 
 #endif

@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_cube3d_struct.h                               .::    .:/ .      .::   */
+/*   init_struct.c                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/11/22 10:39:38 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/23 12:01:51 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/23 12:12:15 by frfrey       #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/23 12:15:08 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-#ifndef FT_CUBE3D_STRUCT_H
-# define FT_CUBE3D_STRUCT_H
+#include "../includes/ft_cube3d.h"
 
-typedef struct	s_id
+void	ft_init_struct(t_map *map)
 {
-	void	*mlx;
-	void	*windows;
-	int		color;
-}				t_id;
-
-typedef struct	s_map
-{
-	int		**map;
-	int		map_heigth;
-	int		map_width;
-	int		w_height;
-	int		w_width;
-	char	*t_north;
-	char	*t_south;
-	char	*t_west;
-	char	*t_east;
-	char	*sprite;
-	int		color_top;
-	int		color_foot;
-}				t_map;
-
-#endif
+	map->map = NULL;
+	map->map_heigth = 0;
+	map->map_width = 0;
+	map->w_height = 0;
+	map->w_width = 0;
+	map->t_north = NULL;
+	map->t_south = NULL;
+	map->t_west = NULL;
+	map->t_east = NULL;
+	map->sprite = NULL;
+	map->color_top = 0;
+	map->color_foot = 0;
+}
