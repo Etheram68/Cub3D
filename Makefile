@@ -6,7 +6,7 @@
 #    By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/11/20 13:23:24 by frfrey       #+#   ##    ##    #+#        #
-#    Updated: 2019/11/23 12:15:54 by frfrey      ###    #+. /#+    ###.fr      #
+#    Updated: 2019/11/23 12:49:40 by frfrey      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -27,6 +27,7 @@ LIBS		=					libft/libft.a
 SRC_PATH	=					sources
 
 SRCS_NAME	= 					main.c map.c error.c key.c bool.c init_struct.c \
+								parse_map.c \
 
 OBJS		= 					${SRCS:.c=.o}
 

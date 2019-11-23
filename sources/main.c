@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:29:11 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/23 11:23:56 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/23 12:42:29 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -68,5 +68,7 @@ int		main(int ac, char **av)
 	mlx_key_hook(id.windows, deal_key, &id);
 	mlx_hook(id.windows, 17, 0, try, &id);
 	mlx_loop(id.mlx);*/
+	/*while (1)
+		;*/
 	return (0);
 }

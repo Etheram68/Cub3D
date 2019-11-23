@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:04:51 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/23 12:15:34 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/23 15:15:43 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -26,5 +26,10 @@ int		map_is_valide(char c);
 int		map_player_start(char c);
 void	ft_count_heigth_map(char *line, int *size_map);
 void	ft_count_len_map(char *line, int *len_map, t_map *map);
+int		ft_parse_map(int fd, t_map *map);
+int		is_texture(char c);
+void	ft_size_windows(char *line, t_map *map);
+void	ft_texture_north(char *line, t_map *map);
+void	ft_check_texture(char *line, t_map *map);
 
 #endif

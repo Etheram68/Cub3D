@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 11:28:03 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/23 11:39:50 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/23 15:06:20 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,6 +23,14 @@ int		map_is_valide(char c)
 int		map_player_start(char c)
 {
 	if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
+		return (TRUE);
+	return (FALSE);
+}
+
+int		is_texture(char c)
+{
+	if (c == 'N' || c == 'S' || c == 'E' || c == 'W' || c == 'O'
+		|| c == 'A' || c == ' ' || c == 'S')
 		return (TRUE);
 	return (FALSE);
 }
