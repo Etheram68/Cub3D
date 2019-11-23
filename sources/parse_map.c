@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 12:48:43 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/23 18:14:50 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/23 18:31:09 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -43,6 +43,8 @@ void	ft_check_type(char *line, t_map *map)
 		ft_take_color(line, map);
 	else if (line[0] == 'C')
 		ft_take_color(line, map);
+	else if (line[0] != '\n' && line[0] != '\0')
+		ft_take_map(line, map);
 }
 
 int		ft_parse_map(int fd, t_map *map)

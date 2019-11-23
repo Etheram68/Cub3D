@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 17:04:15 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/23 18:13:42 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/23 18:41:54 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -81,4 +81,32 @@ void	ft_take_color(char *line, t_map *map)
 		i++;
 	map->rgb.b = ft_atoi(&line[i]);
 	ft_convert_rgb(line, map);
+}
+
+void	ft_take_map(char *line, t_map *map)
+{
+	int				i;
+	int				j;
+	static int		y = 0;
+
+	i = 0;
+	j = 0;
+	if (!(map->map[y] = ft_calloc(map->map_width + 1, sizeof(int*))))
+		print_error("error: Error when you alloued map");
+	while (line[i])
+	{
+		if (map_is_valide(line[i]))
+			map->map[y][j] = line[i++];
+		if (map_player_start(line[i]))
+		{
+			map->map[y][j] = line[i++];
+			map->player.x = i;
+			map->player.y = y;
+		}
+		if (line[i] == ' ')
+			i++;
+		j++;
+	}
+	map->map[y][j] = '\0';
+	y++;
 }

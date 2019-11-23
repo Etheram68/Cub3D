@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:04:51 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/23 18:13:10 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/23 18:27:40 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -33,5 +33,6 @@ void	ft_texture_north(char *line, t_map *map);
 void	ft_check_texture(char *line, t_map *map);
 void	ft_take_color(char *line, t_map *map);
 void	ft_convert_rgb(char *line, t_map *map);
+void	ft_take_map(char *line, t_map *map);
 
 #endif
