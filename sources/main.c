@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:29:11 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/25 10:11:05 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/25 13:03:53 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -53,9 +53,6 @@ int		changecolor(t_id *id)
 
 int		main(int ac, char **av)
 {
-	t_id	id;
-
-	(void)id;
 	if (ac == 2)
 		ft_open_map(av);
 	else
