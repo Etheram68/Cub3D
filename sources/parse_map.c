@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 12:48:43 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/25 10:06:01 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/25 10:33:17 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -51,26 +51,18 @@ int		ft_parse_map(int fd, t_map *map)
 {
 	int		ret;
 	char	*line;
-	int		i;
-	int		y;
 
 	ret = 0;
-	i = 0;
-	y = 0;
 	if (!(map->map = ft_calloc(sizeof(int **), map->map_heigth + 1)))
 		return (print_error("Error:\nAllocation of map failled\n"));
 	while ((ret = get_next_line(fd, &line)))
 	{
 		if (ret == -1 && line == NULL)
-			return (print_error("Error:\nError when you read map for parsing\n"));
+			return (print_error("Error:\nwhen you read map for parsing\n"));
 		ft_check_type(line, map);
 		free(line);
 	}
-	map->map[y] = NULL;
-	for (int g = 0; map->map[g]; g++)
-	{
-		ft_printf("%s\n", map->map[g]);
-	}
+	map->map[map->map_heigth] = NULL;
 	close(fd);
 	return (1);
 }

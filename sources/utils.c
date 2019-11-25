@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 17:04:15 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/25 10:05:22 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/25 10:30:29 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -100,7 +100,7 @@ void	ft_take_map(char *line, t_map *map)
 		if (map_player_start(line[i]))
 		{
 			map->map[y][j] = line[i++];
-			map->player.x = i;
+			map->player.x = j;
 			map->player.y = y;
 		}
 		if (line[i] == ' ')
