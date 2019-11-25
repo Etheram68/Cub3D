@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:04:51 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/23 18:27:40 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/25 10:42:56 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -34,5 +34,7 @@ void	ft_check_texture(char *line, t_map *map);
 void	ft_take_color(char *line, t_map *map);
 void	ft_convert_rgb(char *line, t_map *map);
 void	ft_take_map(char *line, t_map *map);
+void	ft_check_multi_player_start(t_map *map);
+void	ft_check_player_start(t_map *map);
 
 #endif

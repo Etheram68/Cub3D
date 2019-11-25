@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 12:48:43 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/25 10:33:17 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/25 10:44:00 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -58,11 +58,12 @@ int		ft_parse_map(int fd, t_map *map)
 	while ((ret = get_next_line(fd, &line)))
 	{
 		if (ret == -1 && line == NULL)
-			return (print_error("Error:\nwhen you read map for parsing\n"));
+			return (print_error("Error:\nWhen you read map for parsing\n"));
 		ft_check_type(line, map);
 		free(line);
 	}
 	map->map[map->map_heigth] = NULL;
 	close(fd);
+	ft_check_player_start(map);
 	return (1);
 }
