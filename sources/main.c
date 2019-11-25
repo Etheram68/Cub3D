@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:29:11 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/23 18:11:03 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/25 10:05:41 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -59,7 +59,7 @@ int		main(int ac, char **av)
 	if (ac == 2)
 		ft_open_map(av);
 	else
-		return (print_error("error: error: invalid map file"));
+		return (print_error("Error:\nInvalid map file\n"));
 	/*if (!(id.mlx = mlx_init()))
 		exit(EXIT_FAILURE);
 	if (!(id.windows = mlx_new_window(id.mlx, 1920, 1080, "Cube3D")))

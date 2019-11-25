@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 17:04:15 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/23 18:41:54 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/25 10:05:22 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -30,7 +30,7 @@ void	ft_size_windows(char *line, t_map *map)
 			map->w_width = ft_atoi(&line[i]);
 	}
 	if (map->w_height == 0 || map->w_width == 0)
-		print_error("error: Size of windows is invalid");
+		print_error("Error:\nSize of windows is invalid\n");
 }
 
 void	ft_convert_rgb(char *line, t_map *map)
@@ -92,7 +92,7 @@ void	ft_take_map(char *line, t_map *map)
 	i = 0;
 	j = 0;
 	if (!(map->map[y] = ft_calloc(map->map_width + 1, sizeof(int*))))
-		print_error("error: Error when you alloued map");
+		print_error("Error:\nError when you alloued map\n");
 	while (line[i])
 	{
 		if (map_is_valide(line[i]))
