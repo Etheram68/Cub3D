@@ -6,36 +6,56 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/25 13:12:23 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/26 15:34:48 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/26 16:13:21 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/ft_cube3d.h"
 
-int		changecolor(t_map *map)
+void	draw(t_map *map, int x)
 {
-	int x = 0;
-	int y = 0;
-	int *data;
-	int bits = 0;
-	int size = 0;
-	int endian = 0;
+	int		len;
+	int		range_start;
+	int		range_end;
 
-	data = (int *)mlx_get_data_addr(map->id.image, &bits, &size, &endian);
-	while (y < map->w_width)
+	len = (int)(map->w_height / RAY.dist);
+	range_start = -len / 2 + map->w_height / 2;
+	if (range_start < 0)
+		range_start = 0;
+	range_end = len / 2 + map->w_height / 2;
+	if (range_end >= map->w_height)
+		range_end = map->w_height - 1;
+	draw_line(map, x, range_start, range_end);
+}
+
+void	rayon_dist(t_map *map)
+{
+	while (RAY.hit == 0)
 	{
-		x = 0;
-		while (x < map->w_height)
+		if (RAY.side.x < RAY.side.y)
 		{
-			data[y * map->w_height + x] = map->id.color + x;
-			x++;
+			RAY.side.x += RAY.delta.x;
+			RAY.map.x += RAY.step.x;
+			RAY.hit_side = 0;
 		}
-		y++;
-		map->id.color = map->id.color + 1;
+		else
+		{
+			RAY.side.y += RAY.delta.y;
+			RAY.map.y += RAY.step.y;
+			RAY.hit_side = 1;
+		}
+		if (map->map[RAY.map.x][RAY.map.y] > 0)
+		{
+			RAY.hit = 1;
+			if (RAY.hit_side == 0)
+				RAY.dist = (RAY.map.x - RAY.pos.x + (1 - RAY.step.x)
+								/ 2) / RAY.dir.x;
+			else
+				RAY.dist = (RAY.map.y - RAY.pos.y + (1 - RAY.step.y)
+								/ 2) / RAY.dir.y;
+		}
 	}
-	mlx_put_image_to_window(map->id.mlx, map->id.windows, map->id.image, 0, 0);
-	return (1);
 }
 
 void	rayon_side(t_map *map)
@@ -57,7 +77,7 @@ void	rayon_side(t_map *map)
 	}
 	else
 	{
-		RAY.step = 1;
+		RAY.step.y = 1;
 		RAY.side.y = ((int)RAY.pos.y + 1 - RAY.pos.y) * RAY.delta.y;
 	}
 }
@@ -89,6 +109,8 @@ int		raycasting(t_map *map)
 	{
 		init_rayon(map, x);
 		rayon_side(map);
+		rayon_dist(map);
+		draw(map, x);
 	}
 	return (1);
 }
