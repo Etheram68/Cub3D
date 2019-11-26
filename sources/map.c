@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:08:39 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/25 13:11:57 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/26 16:26:58 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -76,19 +76,18 @@ int		ft_count_size_map(int fd, t_map *map)
 	return (0);
 }
 
-int		ft_open_map(char **av)
+int		ft_open_map(char **av, t_map *map)
 {
 	int		fd;
 	t_map	map;
 
 	fd = 0;
-	ft_init_struct(&map);
 	if (!(fd = open(av[1], O_RDONLY)))
 		return (print_error("Error:\nMap file doesn't not exist\n"));
-	ft_count_size_map(fd, &map);
+	ft_count_size_map(fd, map);
 	if (!(fd = open(av[1], O_RDONLY)))
 		return (print_error("Error:\nMap file doesn't not exist\n"));
-	ft_parse_map(fd, &map);
-	ft_raycasting(&map);
+	ft_parse_map(fd, map);
+	ft_raycasting(map);
 	return (1);
 }
