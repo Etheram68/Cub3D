@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 17:04:15 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/25 13:02:39 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/26 09:58:04 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,13 +21,13 @@ void	ft_size_windows(char *line, t_map *map)
 	while (line[i])
 	{
 		if (line[i] == 'R')
-			map->w_height = ft_atoi(&line[++i]);
+			map->w_width = ft_atoi(&line[++i]);
 		if (line[i] == ' ')
 			i++;
 		while (line[i] && ft_isdigit(line[i]))
 			i++;
 		if (ft_isdigit(line[++i]))
-			map->w_width = ft_atoi(&line[i]);
+			map->w_height = ft_atoi(&line[i]);
 	}
 	if (map->w_height == 0 || map->w_width == 0)
 		print_error("Error:\nSize of windows is invalid\n");
@@ -101,8 +101,8 @@ void	ft_take_map(char *line, t_map *map)
 		{
 			ft_check_multi_player_start(map);
 			map->map[y][j] = line[i++];
-			map->player.x = j;
-			map->player.y = y;
+			map->player.pos.x = j;
+			map->player.pos.x = y;
 		}
 		if (line[i] == ' ')
 			i++;

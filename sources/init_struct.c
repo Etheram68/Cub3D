@@ -6,12 +6,22 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 12:12:15 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/23 18:25:50 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/26 10:04:49 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/ft_cube3d.h"
+
+void	ft_init_player(t_map *map)
+{
+	map->player.pos.x = 0;
+	map->player.pos.y = 0;
+	map->player.dir.x = -1;
+	map->player.dir.y = 0;
+	map->player.plane.x = 0;
+	map->player.plane.x = 0.66;
+}
 
 void	ft_init_struct(t_map *map)
 {
@@ -30,6 +40,5 @@ void	ft_init_struct(t_map *map)
 	map->rgb.r = 0;
 	map->rgb.g = 0;
 	map->rgb.b = 0;
-	map->player.x = 0;
-	map->player.y = 0;
+	ft_init_player(map);
 }

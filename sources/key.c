@@ -6,16 +6,16 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:04:14 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/23 10:04:30 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/25 18:28:23 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/ft_cube3d.h"
 
-int		deal_key(int key, t_id *params)
+int		deal_key(int key, t_map *map)
 {
 	if (key == 53)
-		try(params);
+		try(map);
 	return (1);
 }
