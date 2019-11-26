@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:13:42 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/23 10:17:43 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/26 15:27:39 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,6 +18,7 @@
 # include "../libft/includes/libft.h"
 # include "ft_cube3d_struct.h"
 # include "ft_cube3d_header.h"
+# include "ft_cube3d_define.h"
 
 # include <math.h>
 # include <fcntl.h>
