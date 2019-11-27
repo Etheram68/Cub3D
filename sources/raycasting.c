@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/25 13:12:23 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/26 17:10:19 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/27 17:39:53 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -102,10 +102,15 @@ int		ft_raycasting(t_map *map)
 {
 	int		x;
 
-	x = 0;
+	x = -1;
+	map->id.line = 0;
+	map->id.bits = 0;
+	map->id.endian = 0;
 	RAY.pos.x = PLAYER.pos.x;
 	RAY.pos.y = PLAYER.pos.y;
-	while (x < map->w_width)
+	map->id.data = (int *)mlx_get_data_addr(map->id.image,
+							&map->id.bits, &map->id.line, &map->id.endian);
+	while (++x < map->w_width)
 	{
 		init_rayon(map, x);
 		rayon_side(map);

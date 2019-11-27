@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:04:51 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/26 17:08:08 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/27 14:14:46 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -38,5 +38,7 @@ void	ft_take_map(char *line, t_map *map);
 void	ft_check_multi_player_start(t_map *map);
 void	ft_check_player_start(t_map *map);
 int		ft_raycasting(t_map *map);
+void	draw_line(t_map *map, int x, int start, int end);
+void	draw_pixel(t_map *map, int x, int i, unsigned int c);
 
 #endif

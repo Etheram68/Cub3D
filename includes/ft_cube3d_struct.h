@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/22 10:39:38 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/26 10:03:24 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/27 16:49:21 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -32,6 +32,10 @@ typedef struct	s_id
 	void	*windows;
 	int		color;
 	void	*image;
+	int		*data;
+	int		line;
+	int		bits;
+	int		endian;
 }				t_id;
 
 typedef struct	s_color
