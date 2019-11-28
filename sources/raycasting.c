@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/25 13:12:23 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/27 17:39:53 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 15:43:08 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -45,7 +45,7 @@ void	rayon_dist(t_map *map)
 			RAY.map.y += RAY.step.y;
 			RAY.hit_side = 1;
 		}
-		if (map->map[RAY.map.x][RAY.map.y] > 0)
+		if (map->map[RAY.map.y][RAY.map.x] > 0)
 		{
 			RAY.hit = 1;
 			if (RAY.hit_side == 0)
@@ -86,7 +86,7 @@ void	init_rayon(t_map *map, int x)
 {
 	RAY.map.x = (int)RAY.pos.x;
 	RAY.map.y = (int)RAY.pos.y;
-	RAY.cam = (2 * x) / ((double)map->w_width - 1);
+	RAY.cam = 2 * x / (double)map->w_width - 1;
 	RAY.dir.x = RAY.dir.x + PLAYER.plane.x * RAY.cam;
 	RAY.dir.y = PLAYER.dir.y + PLAYER.plane.y * RAY.cam;
 	RAY.delta.x = sqrt(1 + (RAY.dir.y * RAY.dir.y) /
@@ -103,13 +103,8 @@ int		ft_raycasting(t_map *map)
 	int		x;
 
 	x = -1;
-	map->id.line = 0;
-	map->id.bits = 0;
-	map->id.endian = 0;
 	RAY.pos.x = PLAYER.pos.x;
 	RAY.pos.y = PLAYER.pos.y;
-	map->id.data = (int *)mlx_get_data_addr(map->id.image,
-							&map->id.bits, &map->id.line, &map->id.endian);
 	while (++x < map->w_width)
 	{
 		init_rayon(map, x);

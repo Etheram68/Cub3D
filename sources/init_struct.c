@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 12:12:15 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/27 16:59:27 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 11:58:40 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,6 +21,13 @@ void	ft_init_player(t_map *map)
 	map->player.dir.y = 0;
 	map->player.plane.x = 0;
 	map->player.plane.x = 0.66;
+}
+
+void	ft_init_id(t_map *map)
+{
+	map->id.bits = 0;
+	map->id.line = 0;
+	map->id.endian = 0;
 }
 
 void	ft_init_struct(t_map *map)
@@ -41,4 +48,5 @@ void	ft_init_struct(t_map *map)
 	map->rgb.g = 0;
 	map->rgb.b = 0;
 	ft_init_player(map);
+	ft_init_id(map);
 }

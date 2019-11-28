@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:29:11 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/27 17:39:35 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 14:34:30 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -64,6 +64,8 @@ int		main(int ac, char **av)
 			map.w_width, map.w_height, "Cube3D")))
 		print_error("Eroor:\nWhen you initialise windows\n");
 	map.id.image = mlx_new_image(map.id.mlx, map.w_width, map.w_height);
+	map.id.data = (int *)mlx_get_data_addr(map.id.image,
+							&map.id.bits, &map.id.line, &map.id.endian);
 	mlx_loop_hook(map.id.mlx, ft_raycasting, &map);
 	mlx_key_hook(map.id.windows, deal_key, &map);
 	mlx_hook(map.id.windows, 17, 0, try, &map);
