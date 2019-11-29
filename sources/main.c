@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:29:11 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 11:43:50 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 17:14:35 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,32 +20,6 @@ int		try(t_map *map)
 		exit(EXIT_SUCCESS);
 	else
 		exit(EXIT_FAILURE);
-	return (1);
-}
-
-int		changecolor(t_map *map)
-{
-	int x = 0;
-	int y = 0;
-	int *data;
-	int bits = 0;
-	int size = 0;
-	int endian = 0;
-
-	//map->id.color = map->id.color - 10000;
-	data = (int *)mlx_get_data_addr(map->id.image, &bits, &size, &endian);
-	while (y < 1920)
-	{
-		x = 0;
-		while (x < 1080)
-		{
-			data[y * 1080 + x] = map->id.color + x;
-			x++;
-		}
-		y++;
-		map->id.color = map->id.color + 1;
-	}
-	mlx_put_image_to_window(map->id.mlx, map->id.windows, map->id.image, 0, 0);
 	return (1);
 }
 
