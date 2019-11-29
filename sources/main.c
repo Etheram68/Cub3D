@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:29:11 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 18:02:12 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 18:14:32 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -36,6 +36,7 @@ int		try(t_map *map)
 	else
 	{
 		ft_free_struct(map);
+		print_error("Error:\nWhen you destroy thw windows\n");
 		exit(EXIT_FAILURE);
 	}
 	return (1);
