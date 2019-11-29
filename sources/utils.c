@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 17:04:15 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 13:58:55 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 17:54:17 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -50,15 +50,15 @@ void	ft_convert_rgb(char *line, t_map *map)
 		b = ft_strjoin_free2("0", b);
 	if (line[0] == 'F')
 	{
-		map->color_top = ft_strjoin_free(map->color_top, r);
-		map->color_top = ft_strjoin_free(map->color_top, g);
-		map->color_top = ft_strjoin_free(map->color_top, b);
+		map->color_ceil = ft_strjoin_free(map->color_ceil, r);
+		map->color_ceil = ft_strjoin_free(map->color_ceil, g);
+		map->color_ceil = ft_strjoin_free(map->color_ceil, b);
 	}
 	else if (line[0] == 'C')
 	{
-		map->color_foot = ft_strjoin_free(map->color_foot, r);
-		map->color_foot = ft_strjoin_free(map->color_foot, g);
-		map->color_foot = ft_strjoin_free(map->color_foot, b);
+		map->color_floor = ft_strjoin_free(map->color_floor, r);
+		map->color_floor = ft_strjoin_free(map->color_floor, g);
+		map->color_floor = ft_strjoin_free(map->color_floor, b);
 	}
 }
 

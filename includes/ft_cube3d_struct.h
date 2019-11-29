@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/22 10:39:38 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 17:36:18 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 17:53:06 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -79,8 +79,8 @@ typedef struct	s_map
 	char		*t_west;
 	char		*t_east;
 	char		*sprite;
-	char		*color_top;
-	char		*color_foot;
+	char		*color_ceil;
+	char		*color_floor;
 	t_color		rgb;
 	t_player	player;
 	t_id		id;

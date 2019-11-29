@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/11 14:38:17 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/23 18:05:53 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 17:32:51 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -81,5 +81,6 @@ int				ft_intlen(long long nb);
 void			ft_putjoinfree(char *s1, char *s2, int fd);
 char			ft_have(char *s, char c);
 char			*ft_strjoin_free2(char *s1, char *s2);
+int				ft_atoi_base(const char *str, int base);
 
 #endif
