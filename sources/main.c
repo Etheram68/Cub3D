@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:29:11 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 18:18:57 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 18:27:20 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,9 +20,22 @@ void	ft_free_struct(t_map *map)
 	i = 0;
 	free(map->color_ceil);
 	free(map->color_floor);
-	while (map->map[i])
-		free(map->map[i++]);
-	free(map->map);
+	if (map->map != NULL)
+	{
+		while (map->map[i])
+			free(map->map[i++]);
+		free(map->map);
+	}
+	if (map->t_north != NULL)
+		free(map->t_north);
+	if (map->t_south != NULL)
+		free(map->t_south);
+	if (map->t_west != NULL)
+		free(map->t_west);
+	if (map->t_east != NULL)
+		free(map->t_east);
+	if (map->sprite != NULL)
+		free(map->sprite);
 }
 
 int		try(t_map *map)
