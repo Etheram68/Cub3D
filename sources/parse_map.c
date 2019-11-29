@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 12:48:43 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 13:59:30 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 17:11:46 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -47,6 +47,26 @@ void	ft_check_type(char *line, t_map *map)
 		ft_take_map(line, map);
 }
 
+void	ft_check_map_is_valide(t_map *map)
+{
+	int		i;
+	int		y;
+
+	i = 0;
+	y = 0;
+	while (map->map[0][y])
+		ft_is_border(map->map[0][y++]);
+	while (i < map->map_heigth)
+		ft_is_border(map->map[i++][0]);
+	i = 0;
+	while (i < map->map_heigth)
+		ft_is_border(map->map[i++][y - 1]);
+	y = 0;
+	i--;
+	while (map->map[i][y])
+		ft_is_border(map->map[i][y++]);
+}
+
 int		ft_parse_map(int fd, t_map *map)
 {
 	int		ret;
@@ -65,5 +85,6 @@ int		ft_parse_map(int fd, t_map *map)
 	map->map[map->map_heigth] = NULL;
 	close(fd);
 	ft_check_player_start(map);
+	ft_check_map_is_valide(map);
 	return (1);
 }

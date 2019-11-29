@@ -6,12 +6,20 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:13:24 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/27 17:18:07 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 17:10:48 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/ft_cube3d.h"
+
+int		ft_is_border(char c)
+{
+	if (c == '1')
+		return (TRUE);
+	print_error("Error:\nThe border is not a wall\n");
+	return (FALSE);
+}
 
 void	ft_check_texture(char *line, t_map *map)
 {
