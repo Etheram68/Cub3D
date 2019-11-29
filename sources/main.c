@@ -6,20 +6,38 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:29:11 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 17:14:35 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 18:02:12 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/ft_cube3d.h"
 
+void	ft_free_struct(t_map *map)
+{
+	int		i;
+
+	i = 0;
+	free(map->color_ceil);
+	free(map->color_floor);
+	while (map->map[i])
+		free(map->map[i++]);
+	free(map->map);
+}
+
 int		try(t_map *map)
 {
 	mlx_clear_window(map->id.mlx, map->id.windows);
 	if (!(mlx_destroy_window(map->id.mlx, map->id.windows)))
+	{
+		ft_free_struct(map);
 		exit(EXIT_SUCCESS);
+	}
 	else
+	{
+		ft_free_struct(map);
 		exit(EXIT_FAILURE);
+	}
 	return (1);
 }
 

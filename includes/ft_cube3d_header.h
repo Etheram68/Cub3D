@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:04:51 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 17:10:55 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 18:02:39 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -42,5 +42,6 @@ void	draw_line(t_map *map, int x, int start, int end);
 void	draw_pixel(t_map *map, int x, int i, unsigned int c);
 void	ft_check_map_is_valide(t_map *map);
 int		ft_is_border(char c);
+void	ft_free_struct(t_map *map);
 
 #endif

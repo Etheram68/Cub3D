@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 12:12:15 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 14:05:56 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 17:58:35 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -42,8 +42,8 @@ void	ft_init_struct(t_map *map)
 	map->t_west = NULL;
 	map->t_east = NULL;
 	map->sprite = NULL;
-	map->color_top = ft_strdup("");
-	map->color_foot = ft_strdup("");
+	map->color_ceil = ft_strdup("");
+	map->color_floor = ft_strdup("");
 	map->rgb.r = 0;
 	map->rgb.g = 0;
 	map->rgb.b = 0;
