@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/22 10:39:38 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/27 16:49:21 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 17:36:18 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,8 +22,8 @@ typedef	struct	s_vectori
 
 typedef struct	s_vectord
 {
-	float	x;
-	float	y;
+	double	x;
+	double	y;
 }				t_vectord;
 
 typedef struct	s_id

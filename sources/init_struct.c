@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 12:12:15 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 11:58:40 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 17:37:30 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,7 +20,7 @@ void	ft_init_player(t_map *map)
 	map->player.dir.x = -1;
 	map->player.dir.y = 0;
 	map->player.plane.x = 0;
-	map->player.plane.x = 0.66;
+	map->player.plane.y = 0.66;
 }
 
 void	ft_init_id(t_map *map)

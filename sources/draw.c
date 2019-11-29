@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 17:11:42 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/28 15:43:00 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/28 17:51:55 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,13 +25,12 @@ void	draw_line(t_map *map, int x, int start, int end)
 
 	i = -1;
 	c = 0xff9600;
-	printf("%d %d\n", start, end);
-	while (++i < 300)
+	while (++i < start)
 	{
 		draw_pixel(map, x, i, 0x00cdff);
 	}
 	i--;
-	while (++i <= 800 && i < map->w_height)
+	while (++i <= end && i < map->w_height)
 	{
 		draw_pixel(map, x, i, c);
 	}
