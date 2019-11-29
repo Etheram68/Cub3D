@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 12:48:43 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 18:14:18 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 18:23:06 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -55,16 +55,16 @@ void	ft_check_map_is_valide(t_map *map)
 	i = 0;
 	y = 0;
 	while (map->map[0][y])
-		ft_is_border(map->map[0][y++]);
+		ft_is_border(map->map[0][y++], map);
 	while (i < map->map_heigth)
-		ft_is_border(map->map[i++][0]);
+		ft_is_border(map->map[i++][0], map);
 	i = 0;
 	while (i < map->map_heigth)
-		ft_is_border(map->map[i++][y - 1]);
+		ft_is_border(map->map[i++][y - 1], map);
 	y = 0;
 	i--;
 	while (map->map[i][y])
-		ft_is_border(map->map[i][y++]);
+		ft_is_border(map->map[i][y++], map);
 }
 
 int		ft_parse_map(int fd, t_map *map)
@@ -74,11 +74,11 @@ int		ft_parse_map(int fd, t_map *map)
 
 	ret = 0;
 	if (!(map->map = ft_calloc(sizeof(int **), map->map_heigth + 1)))
-		return (print_error("Error:\nAllocation of map failled\n"));
+		return (print_error("Error:\nAllocation of map failled\n", map));
 	while ((ret = get_next_line(fd, &line)))
 	{
 		if (ret == -1 && line == NULL)
-			return (print_error("Error:\nWhen you read map for parsing\n"));
+			return (print_error("Error:\nWhen read map for parsing\n", map));
 		ft_check_type(line, map);
 		free(line);
 	}

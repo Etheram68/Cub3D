@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:29:11 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 18:14:32 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/29 18:18:57 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -36,7 +36,7 @@ int		try(t_map *map)
 	else
 	{
 		ft_free_struct(map);
-		print_error("Error:\nWhen you destroy thw windows\n");
+		print_error("Error:\nWhen you destroy thw windows\n", map);
 		exit(EXIT_FAILURE);
 	}
 	return (1);
@@ -50,12 +50,12 @@ int		main(int ac, char **av)
 	if (ac == 2)
 		ft_open_map(av, &map);
 	else
-		return (print_error("Error:\nInvalid map file\n"));
+		return (print_error("Error:\nInvalid map file\n", &map));
 	if (!(map.id.mlx = mlx_init()))
-		print_error("Error:\nWhen you init id mlx\n");
+		print_error("Error:\nWhen you init id mlx\n", &map);
 	if (!(map.id.windows = mlx_new_window(map.id.mlx,
 			map.w_width, map.w_height, "Cube3D")))
-		print_error("Eroor:\nWhen you initialise windows\n");
+		print_error("Eroor:\nWhen you initialise windows\n", &map);
 	map.id.image = mlx_new_image(map.id.mlx, map.w_width, map.w_height);
 	map.id.data = (int *)mlx_get_data_addr(map.id.image,
 							&map.id.bits, &map.id.line, &map.id.endian);
