@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/25 13:12:23 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/30 10:43:46 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/30 11:32:16 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -89,10 +89,8 @@ void	init_rayon(t_map *map, int x)
 	RAY.cam = 2 * x / (double)map->w_width - 1;
 	RAY.dir.x = PLAYER.dir.x + PLAYER.plane.x * RAY.cam;
 	RAY.dir.y = PLAYER.dir.y + PLAYER.plane.y * RAY.cam;
-	RAY.delta.x = sqrt(1 + (RAY.dir.y * RAY.dir.y) /
-									(RAY.dir.x * RAY.dir.x));
-	RAY.delta.y = sqrt(1 + (RAY.dir.x * RAY.dir.x) /
-									(RAY.dir.y * RAY.dir.y));
+	RAY.delta.x = fabs(1 / RAY.dir.x);
+	RAY.delta.y = fabs(1 / RAY.dir.y);
 	RAY.hit = 0;
 	RAY.dist = -1;
 	RAY.hit_side = -1;
