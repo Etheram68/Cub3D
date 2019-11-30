@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/22 10:39:38 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 17:53:06 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/30 10:38:32 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -69,7 +69,7 @@ typedef struct	s_player
 
 typedef struct	s_map
 {
-	char		**map;
+	int			**map;
 	int			map_heigth;
 	int			map_width;
 	int			w_height;

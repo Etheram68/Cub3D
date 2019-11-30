@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:29:11 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 18:27:20 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/30 10:50:34 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,21 +20,21 @@ void	ft_free_struct(t_map *map)
 	i = 0;
 	free(map->color_ceil);
 	free(map->color_floor);
-	if (map->map != NULL)
+	/*if (map->map)
 	{
-		while (map->map[i])
+		while (i < map->map_heigth)
 			free(map->map[i++]);
 		free(map->map);
-	}
-	if (map->t_north != NULL)
+	}*/
+	if (map->t_north)
 		free(map->t_north);
-	if (map->t_south != NULL)
+	if (map->t_south)
 		free(map->t_south);
-	if (map->t_west != NULL)
+	if (map->t_west)
 		free(map->t_west);
-	if (map->t_east != NULL)
+	if (map->t_east)
 		free(map->t_east);
-	if (map->sprite != NULL)
+	if (map->sprite)
 		free(map->sprite);
 }
 
@@ -73,8 +73,8 @@ int		main(int ac, char **av)
 	map.id.data = (int *)mlx_get_data_addr(map.id.image,
 							&map.id.bits, &map.id.line, &map.id.endian);
 	mlx_loop_hook(map.id.mlx, ft_raycasting, &map);
-	mlx_key_hook(map.id.windows, deal_key, &map);
-	mlx_hook(map.id.windows, 17, 0, try, &map);
+	mlx_hook(map.id.windows, 2, 0, deal_key, &map);
+	//mlx_hook(map.id.windows, 3, 0, releaseinput, &map);
 	mlx_loop(map.id.mlx);
 	return (0);
 }

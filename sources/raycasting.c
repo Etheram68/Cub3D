@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/25 13:12:23 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 14:54:16 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/30 10:43:46 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -45,7 +45,7 @@ void	rayon_dist(t_map *map)
 			RAY.map.y += RAY.step.y;
 			RAY.hit_side = 1;
 		}
-		if (map->map[RAY.map.x][RAY.map.y] > '0')
+		if (map->map[RAY.map.x][RAY.map.y] > 0)
 		{
 			RAY.hit = 1;
 			if (RAY.hit_side == 0)

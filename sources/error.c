@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:13:24 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 18:18:08 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/30 10:43:32 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,7 +15,7 @@
 
 int		ft_is_border(char c, t_map *map)
 {
-	if (c == '1')
+	if (c == 1)
 		return (TRUE);
 	print_error("Error:\nThe border is not a wall\n", map);
 	return (FALSE);
