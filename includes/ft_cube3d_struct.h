@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/22 10:39:38 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/30 10:38:32 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/02 15:55:41 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -36,6 +36,7 @@ typedef struct	s_id
 	int		line;
 	int		bits;
 	int		endian;
+	double	fps;
 }				t_id;
 
 typedef struct	s_color

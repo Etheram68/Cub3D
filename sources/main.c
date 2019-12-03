@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:29:11 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/30 11:03:58 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/02 11:12:17 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -75,6 +75,7 @@ int		main(int ac, char **av)
 	mlx_loop_hook(map.id.mlx, ft_raycasting, &map);
 	mlx_hook(map.id.windows, 2, 0, deal_key, &map);
 	//mlx_hook(map.id.windows, 3, 0, releaseinput, &map);
+	mlx_hook(map.id.windows, 17, 0, try, &map);
 	mlx_loop(map.id.mlx);
 	return (0);
 }

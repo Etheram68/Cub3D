@@ -6,12 +6,13 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/25 13:12:23 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/30 11:32:16 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/02 15:41:50 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/ft_cube3d.h"
+#include <time.h>
 
 void	draw(t_map *map, int x)
 {
@@ -98,7 +99,7 @@ void	init_rayon(t_map *map, int x)
 
 int		ft_raycasting(t_map *map)
 {
-	int		x;
+	int				x;
 
 	x = -1;
 	RAY.pos.x = PLAYER.pos.x;
