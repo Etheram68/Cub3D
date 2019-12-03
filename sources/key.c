@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:04:14 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/03 19:18:05 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/03 19:20:32 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -70,17 +70,17 @@ int		deal_key(t_map *map)
 	}
 	if (map->player.a == 1)
 	{
-		if (map->map[(int)(PLAYER.pos.x + PLAYER.dir.y * 0.5)][(int)PLAYER.pos.y] == 0)
-			PLAYER.pos.x -= PLAYER.dir.y * 0.5;
-		if (map->map[(int)PLAYER.pos.x][(int)(PLAYER.pos.y + PLAYER.dir.x * 0.5)] == 0)
-			PLAYER.pos.y += PLAYER.dir.x * 0.5;
+		if (map->map[(int)(PLAYER.pos.x + PLAYER.dir.y * 0.05)][(int)PLAYER.pos.y] == 0)
+			PLAYER.pos.x -= PLAYER.dir.y * 0.05;
+		if (map->map[(int)PLAYER.pos.x][(int)(PLAYER.pos.y + PLAYER.dir.x * 0.05)] == 0)
+			PLAYER.pos.y += PLAYER.dir.x * 0.05;
 	}
 	if (map->player.d == 1)
 	{
-		if (map->map[(int)(PLAYER.pos.x + PLAYER.dir.y * 0.5)][(int)PLAYER.pos.y] == 0)
-			PLAYER.pos.x += PLAYER.dir.y * 0.5;
-		if (map->map[(int)PLAYER.pos.x][(int)(PLAYER.pos.y + PLAYER.dir.x * 0.5)] == 0)
-			PLAYER.pos.y -= PLAYER.dir.x * 0.5;
+		if (map->map[(int)(PLAYER.pos.x + PLAYER.dir.y * 0.05)][(int)PLAYER.pos.y] == 0)
+			PLAYER.pos.x += PLAYER.dir.y * 0.05;
+		if (map->map[(int)PLAYER.pos.x][(int)(PLAYER.pos.y + PLAYER.dir.x * 0.05)] == 0)
+			PLAYER.pos.y -= PLAYER.dir.x * 0.05;
 	}
 	if (map->player.rightarrow == 1)
 	{
