@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/22 10:39:38 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/02 15:55:41 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/03 17:36:57 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -66,6 +66,13 @@ typedef struct	s_player
 	t_vectord	dir;
 	t_vectord	plane;
 	t_vectord	pos;
+	int			w;
+	int			s;
+	int			a;
+	int			d;
+	int			leftarrow;
+	int			rightarrow;
+
 }				t_player;
 
 typedef struct	s_map

@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 17:11:42 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/30 11:43:09 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/03 18:28:38 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,7 +15,10 @@
 
 void	draw_pixel(t_map *map, int x, int y, unsigned int c)
 {
-	map->id.data[y * map->w_width + x] = c;
+	int		i;
+
+	i = x + (y * map->w_width);
+	map->id.data[i] = c;
 }
 
 void	draw_line(t_map *map, int x, int start, int end)

@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:04:51 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 18:23:18 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/03 16:49:05 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,7 +16,7 @@
 
 # include "ft_cube3d_struct.h"
 
-int		deal_key(int key, t_map *map);
+int		deal_key(t_map *map);
 int		print_error(char *str, t_map *map);
 void	ft_init_player(t_map *map);
 void	ft_init_struct(t_map *map);
@@ -43,5 +43,7 @@ void	draw_pixel(t_map *map, int x, int i, unsigned int c);
 void	ft_check_map_is_valide(t_map *map);
 int		ft_is_border(char c, t_map *map);
 void	ft_free_struct(t_map *map);
+int		ft_releaseinput(int i, t_map *map);
+int		ft_holdinput(int key, t_map *map);
 
 #endif

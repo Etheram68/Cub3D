@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/25 13:12:23 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/02 15:41:50 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/03 18:43:32 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -111,6 +111,5 @@ int		ft_raycasting(t_map *map)
 		rayon_dist(map);
 		draw(map, x);
 	}
-	mlx_put_image_to_window(map->id.mlx, map->id.windows, map->id.image, 0, 0);
 	return (1);
 }
