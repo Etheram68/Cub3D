@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:04:14 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/03 18:43:37 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/03 19:18:05 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -64,33 +64,41 @@ int		deal_key(t_map *map)
 	if (map->player.s == 1)
 	{
 		if (map->map[(int)(PLAYER.pos.x + PLAYER.dir.x * 0.5)][(int)PLAYER.pos.y] == 0)
-			PLAYER.pos.x -= PLAYER.dir.x * 0.5;
+			PLAYER.pos.x -= PLAYER.dir.y * 0.5;
 		if (map->map[(int)PLAYER.pos.x][(int)(PLAYER.pos.y + PLAYER.dir.y * 0.5)] == 0)
 			PLAYER.pos.y -= PLAYER.dir.y * 0.5;
 	}
 	if (map->player.a == 1)
 	{
-		PLAYER.pos.y -= RAY.dir.y * 0.5;
+		if (map->map[(int)(PLAYER.pos.x + PLAYER.dir.y * 0.5)][(int)PLAYER.pos.y] == 0)
+			PLAYER.pos.x -= PLAYER.dir.y * 0.5;
+		if (map->map[(int)PLAYER.pos.x][(int)(PLAYER.pos.y + PLAYER.dir.x * 0.5)] == 0)
+			PLAYER.pos.y += PLAYER.dir.x * 0.5;
 	}
 	if (map->player.d == 1)
-		PLAYER.pos.y += RAY.dir.y * 0.5;
+	{
+		if (map->map[(int)(PLAYER.pos.x + PLAYER.dir.y * 0.5)][(int)PLAYER.pos.y] == 0)
+			PLAYER.pos.x += PLAYER.dir.y * 0.5;
+		if (map->map[(int)PLAYER.pos.x][(int)(PLAYER.pos.y + PLAYER.dir.x * 0.5)] == 0)
+			PLAYER.pos.y -= PLAYER.dir.x * 0.5;
+	}
 	if (map->player.rightarrow == 1)
 	{
 		olddirx = PLAYER.dir.x;
-		PLAYER.dir.x = PLAYER.dir.x * cos(-0.1) - PLAYER.dir.y * sin(-0.1);
-		PLAYER.dir.y = olddirx * sin(-0.1) + PLAYER.dir.y * cos(-0.1);
+		PLAYER.dir.x = PLAYER.dir.x * cos(-0.05) - PLAYER.dir.y * sin(-0.05);
+		PLAYER.dir.y = olddirx * sin(-0.05) + PLAYER.dir.y * cos(-0.05);
 		oldplanex = PLAYER.plane.x;
-		PLAYER.plane.x = PLAYER.plane.x * cos(-0.1) - PLAYER.plane.y * sin(-0.1);
-		PLAYER.plane.y = oldplanex * sin(-0.1) + PLAYER.plane.y * cos(-0.1);
+		PLAYER.plane.x = PLAYER.plane.x * cos(-0.05) - PLAYER.plane.y * sin(-0.05);
+		PLAYER.plane.y = oldplanex * sin(-0.05) + PLAYER.plane.y * cos(-0.05);
 	}
 	if (map->player.leftarrow == 1)
 	{
 		olddirx = PLAYER.dir.x;
-		PLAYER.dir.x = PLAYER.dir.x * cos(0.1) - PLAYER.dir.y * sin(0.1);
-		PLAYER.dir.y = olddirx * sin(0.1) + PLAYER.dir.y * cos(0.1);
+		PLAYER.dir.x = PLAYER.dir.x * cos(0.05) - PLAYER.dir.y * sin(0.05);
+		PLAYER.dir.y = olddirx * sin(0.05) + PLAYER.dir.y * cos(0.05);
 		oldplanex = PLAYER.plane.x;
-		PLAYER.plane.x = PLAYER.plane.x * cos(0.1) - PLAYER.plane.y * sin(0.1);
-		PLAYER.plane.y = oldplanex * sin(0.1) + PLAYER.plane.y * cos(0.1);
+		PLAYER.plane.x = PLAYER.plane.x * cos(0.05) - PLAYER.plane.y * sin(0.05);
+		PLAYER.plane.y = oldplanex * sin(0.05) + PLAYER.plane.y * cos(0.05);
 	}
 	ft_raycasting(map);
 	mlx_put_image_to_window(map->id.mlx, map->id.windows, map->id.image, 0, 0);
