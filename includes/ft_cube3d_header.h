@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:04:51 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 17:59:43 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 18:12:35 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,6 +24,7 @@ void	ft_init_struct(t_map *map);
 void	ft_init_player(t_map *map);
 void	ft_init_id(t_map *map);
 void	ft_init_dir_player(t_map *map);
+void	ft_init_dir_player_ew(t_map *map);
 
 /*
 **				Open Map and parse				**

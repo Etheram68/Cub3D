@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/22 10:39:38 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 13:33:05 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 18:18:19 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -72,6 +72,7 @@ typedef struct	s_player
 	int			d;
 	int			leftarrow;
 	int			rightarrow;
+	int			shift;
 	double		speed_move;
 	double		speed_rot;
 }				t_player;

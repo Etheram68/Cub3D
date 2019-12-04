@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:04:14 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 17:57:50 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 18:31:20 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,6 +27,8 @@ int		ft_holdinput(int key, t_map *map)
 		map->player.s = 1;
 	if (key == KEY_D)
 		map->player.d = 1;
+	if (key == KEY_SHIFT_LEFT)
+		PLAYER.speed_move = 0.06;
 	if (key == KEY_ESCAPE)
 		try(map);
 	return (0);
@@ -46,23 +48,24 @@ int		ft_releaseinput(int key, t_map *map)
 		map->player.s = 0;
 	if (key == KEY_D)
 		map->player.d = 0;
+	if (key == KEY_SHIFT_LEFT)
+		PLAYER.speed_move = 0.03;
 	return (0);
 }
 
 int		deal_key(t_map *map)
 {
-	printf("%f, %f\n", PLAYER.plane.x, PLAYER.plane.y);
-	if (map->player.w == 1)
+	if (PLAYER.w == 1)
 		ft_move_up_down(map);
-	if (map->player.s == 1)
+	if (PLAYER.s == 1)
 		ft_move_up_down(map);
-	if (map->player.a == 1)
+	if (PLAYER.a == 1)
 		ft_move_left_rigth(map);
-	if (map->player.d == 1)
+	if (PLAYER.d == 1)
 		ft_move_left_rigth(map);
-	if (map->player.rightarrow == 1)
+	if (PLAYER.rightarrow == 1)
 		ft_move_cam_rigth(map);
-	if (map->player.leftarrow == 1)
+	if (PLAYER.leftarrow == 1)
 		ft_move_cam_left(map);
 	mlx_clear_window(map->id.mlx, map->id.windows);
 	ft_raycasting(map);

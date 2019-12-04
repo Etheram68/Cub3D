@@ -6,35 +6,21 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 12:12:15 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 18:09:20 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 18:31:25 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/ft_cube3d.h"
 
-void	ft_init_dir_player(t_map *map)
+void	ft_init_dir_player_ew(t_map *map)
 {
-	if (map->dir == 'N')
-	{
-		map->player.dir.y = -1;
-		map->player.dir.x = 0;
-		map->player.plane.y = 0;
-		map->player.plane.x = 0.66;
-	}
 	if (map->dir == 'W')
 	{
 		map->player.dir.y = 0;
 		map->player.dir.x = -1;
 		map->player.plane.y = -0.66;
 		map->player.plane.x = 0;
-	}
-	if (map->dir == 'S')
-	{
-		map->player.dir.y = 1;
-		map->player.dir.x = 0;
-		map->player.plane.y = 0;
-		map->player.plane.x = -0.66;
 	}
 	if (map->dir == 'E')
 	{
@@ -45,15 +31,30 @@ void	ft_init_dir_player(t_map *map)
 	}
 }
 
+void	ft_init_dir_player(t_map *map)
+{
+	if (map->dir == 'N')
+	{
+		map->player.dir.y = -1;
+		map->player.dir.x = 0;
+		map->player.plane.y = 0;
+		map->player.plane.x = 0.66;
+	}
+	if (map->dir == 'S')
+	{
+		map->player.dir.y = 1;
+		map->player.dir.x = 0;
+		map->player.plane.y = 0;
+		map->player.plane.x = -0.66;
+	}
+	ft_init_dir_player_ew(map);
+}
+
 void	ft_init_player(t_map *map)
 {
 	map->player.pos.y = 0;
 	map->player.pos.x = 0;
-	map->player.dir.y = -1;
-	map->player.dir.x = 0;
-	map->player.plane.y = 0;
-	map->player.plane.x = 0.66;
-	map->player.speed_move = 0.04;
+	map->player.speed_move = 0.03;
 	map->player.speed_rot = 0.03;
 }
 
