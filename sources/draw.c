@@ -6,14 +6,14 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 17:11:42 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 17:51:41 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 17:56:02 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/ft_cube3d.h"
 
-void	draw_pixel(t_map *map, int x, int y, unsigned int c)
+void			draw_pixel(t_map *map, int x, int y, unsigned int c)
 {
 	int		i;
 
@@ -38,7 +38,7 @@ unsigned int	get_texture(t_map *map)
 	return (0xCC6600);
 }
 
-void	draw_line(t_map *map, int x, int start, int end)
+void			draw_line(t_map *map, int x, int start, int end)
 {
 	int				i;
 	unsigned int	c;

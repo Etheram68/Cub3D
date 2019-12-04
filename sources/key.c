@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:04:14 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 11:25:54 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 17:57:50 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -51,6 +51,7 @@ int		ft_releaseinput(int key, t_map *map)
 
 int		deal_key(t_map *map)
 {
+	printf("%f, %f\n", PLAYER.plane.x, PLAYER.plane.y);
 	if (map->player.w == 1)
 		ft_move_up_down(map);
 	if (map->player.s == 1)
