@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:25:34 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 14:45:49 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 17:17:58 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,20 +17,20 @@ void	ft_move_up_down(t_map *map)
 {
 	if (PLAYER.w == 1)
 	{
-		if (!(map->map[(int)(PLAYER.pos.y + PLAYER.pos.y * PLAYER.speed_move)]
-						[(int)PLAYER.pos.x] == 1))
+		if (map->map[(int)(PLAYER.pos.y + PLAYER.dir.y * PLAYER.speed_move)]
+						[(int)PLAYER.pos.x] != 1)
 			PLAYER.pos.y += PLAYER.dir.y * PLAYER.speed_move;
-		if (!(map->map[(int)PLAYER.pos.y]
-			[(int)(PLAYER.pos.x + PLAYER.dir.x * PLAYER.speed_move)] == 1))
+		if (map->map[(int)PLAYER.pos.y]
+			[(int)(PLAYER.pos.x + PLAYER.dir.x * PLAYER.speed_move)] != 1)
 			PLAYER.pos.x += PLAYER.dir.x * PLAYER.speed_move;
 	}
 	if (PLAYER.s == 1)
 	{
-		if (!(map->map[(int)(PLAYER.pos.y + PLAYER.dir.y * PLAYER.speed_move)]
-			[(int)PLAYER.pos.x] == 1))
+		if (map->map[(int)(PLAYER.pos.y - PLAYER.dir.y * PLAYER.speed_move)]
+			[(int)PLAYER.pos.x] != 1)
 			PLAYER.pos.y -= PLAYER.dir.y * PLAYER.speed_move;
-		if (!(map->map[(int)PLAYER.pos.y]
-			[(int)(PLAYER.pos.x + PLAYER.dir.x * PLAYER.speed_move)] == 1))
+		if (map->map[(int)PLAYER.pos.y]
+			[(int)(PLAYER.pos.x - PLAYER.dir.x * PLAYER.speed_move)] != 1)
 			PLAYER.pos.x -= PLAYER.dir.x * PLAYER.speed_move;
 	}
 }
@@ -39,20 +39,20 @@ void	ft_move_left_rigth(t_map *map)
 {
 	if (PLAYER.a == 1)
 	{
-		if (!(map->map[(int)(PLAYER.pos.y + PLAYER.dir.x * PLAYER.speed_move)]
-			[(int)PLAYER.pos.x] == 1))
+		if (map->map[(int)(PLAYER.pos.y - PLAYER.dir.x * PLAYER.speed_move)]
+			[(int)PLAYER.pos.x] != 1)
 			PLAYER.pos.y -= PLAYER.dir.x * PLAYER.speed_move;
-		if (!(map->map[(int)PLAYER.pos.y]
-			[(int)(PLAYER.pos.x + PLAYER.dir.y * PLAYER.speed_move)] == 1))
+		if (map->map[(int)PLAYER.pos.y]
+			[(int)(PLAYER.pos.x + PLAYER.dir.y * PLAYER.speed_move)] != 1)
 			PLAYER.pos.x += PLAYER.dir.y * PLAYER.speed_move;
 	}
 	if (PLAYER.d == 1)
 	{
-		if (!(map->map[(int)(PLAYER.pos.y + PLAYER.dir.x * PLAYER.speed_move)]
-			[(int)PLAYER.pos.x] == 1))
+		if (map->map[(int)(PLAYER.pos.y + PLAYER.dir.x * PLAYER.speed_move)]
+			[(int)PLAYER.pos.x] != 1)
 			PLAYER.pos.y += PLAYER.dir.x * PLAYER.speed_move;
-		if (!(map->map[(int)PLAYER.pos.y]
-			[(int)(PLAYER.pos.x + PLAYER.dir.y * PLAYER.speed_move)] == 1))
+		if (map->map[(int)PLAYER.pos.y]
+			[(int)(PLAYER.pos.x - PLAYER.dir.y * PLAYER.speed_move)] != 1)
 			PLAYER.pos.x -= PLAYER.dir.y * PLAYER.speed_move;
 	}
 }
