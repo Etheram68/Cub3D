@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:04:14 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/03 19:20:32 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 11:25:54 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -51,55 +51,19 @@ int		ft_releaseinput(int key, t_map *map)
 
 int		deal_key(t_map *map)
 {
-	double	olddirx;
-	double	oldplanex;
-
 	if (map->player.w == 1)
-	{
-		if (map->map[(int)(PLAYER.pos.x + PLAYER.dir.x * 0.5)][(int)PLAYER.pos.y] == 0)
-			PLAYER.pos.x += PLAYER.dir.x * 0.5;
-		if (map->map[(int)PLAYER.pos.x][(int)(PLAYER.pos.y + PLAYER.dir.y * 0.5)] == 0)
-			PLAYER.pos.y += PLAYER.dir.y * 0.5;
-	}
+		ft_move_up_down(map);
 	if (map->player.s == 1)
-	{
-		if (map->map[(int)(PLAYER.pos.x + PLAYER.dir.x * 0.5)][(int)PLAYER.pos.y] == 0)
-			PLAYER.pos.x -= PLAYER.dir.y * 0.5;
-		if (map->map[(int)PLAYER.pos.x][(int)(PLAYER.pos.y + PLAYER.dir.y * 0.5)] == 0)
-			PLAYER.pos.y -= PLAYER.dir.y * 0.5;
-	}
+		ft_move_up_down(map);
 	if (map->player.a == 1)
-	{
-		if (map->map[(int)(PLAYER.pos.x + PLAYER.dir.y * 0.05)][(int)PLAYER.pos.y] == 0)
-			PLAYER.pos.x -= PLAYER.dir.y * 0.05;
-		if (map->map[(int)PLAYER.pos.x][(int)(PLAYER.pos.y + PLAYER.dir.x * 0.05)] == 0)
-			PLAYER.pos.y += PLAYER.dir.x * 0.05;
-	}
+		ft_move_left_rigth(map);
 	if (map->player.d == 1)
-	{
-		if (map->map[(int)(PLAYER.pos.x + PLAYER.dir.y * 0.05)][(int)PLAYER.pos.y] == 0)
-			PLAYER.pos.x += PLAYER.dir.y * 0.05;
-		if (map->map[(int)PLAYER.pos.x][(int)(PLAYER.pos.y + PLAYER.dir.x * 0.05)] == 0)
-			PLAYER.pos.y -= PLAYER.dir.x * 0.05;
-	}
+		ft_move_left_rigth(map);
 	if (map->player.rightarrow == 1)
-	{
-		olddirx = PLAYER.dir.x;
-		PLAYER.dir.x = PLAYER.dir.x * cos(-0.05) - PLAYER.dir.y * sin(-0.05);
-		PLAYER.dir.y = olddirx * sin(-0.05) + PLAYER.dir.y * cos(-0.05);
-		oldplanex = PLAYER.plane.x;
-		PLAYER.plane.x = PLAYER.plane.x * cos(-0.05) - PLAYER.plane.y * sin(-0.05);
-		PLAYER.plane.y = oldplanex * sin(-0.05) + PLAYER.plane.y * cos(-0.05);
-	}
+		ft_move_cam_rigth(map);
 	if (map->player.leftarrow == 1)
-	{
-		olddirx = PLAYER.dir.x;
-		PLAYER.dir.x = PLAYER.dir.x * cos(0.05) - PLAYER.dir.y * sin(0.05);
-		PLAYER.dir.y = olddirx * sin(0.05) + PLAYER.dir.y * cos(0.05);
-		oldplanex = PLAYER.plane.x;
-		PLAYER.plane.x = PLAYER.plane.x * cos(0.05) - PLAYER.plane.y * sin(0.05);
-		PLAYER.plane.y = oldplanex * sin(0.05) + PLAYER.plane.y * cos(0.05);
-	}
+		ft_move_cam_left(map);
+	mlx_clear_window(map->id.mlx, map->id.windows);
 	ft_raycasting(map);
 	mlx_put_image_to_window(map->id.mlx, map->id.windows, map->id.image, 0, 0);
 	return (1);

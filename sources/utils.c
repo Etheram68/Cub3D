@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 17:04:15 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/30 10:40:31 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/03 19:53:33 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -81,6 +81,8 @@ void	ft_take_color(char *line, t_map *map)
 		i++;
 	map->rgb.b = ft_atoi(&line[i]);
 	ft_convert_rgb(line, map);
+	map->floor = ft_atoi_base(map->color_floor, 16);
+	map->ceil = ft_atoi_base(map->color_ceil, 16);
 }
 
 void	ft_take_map(char *line, t_map *map)

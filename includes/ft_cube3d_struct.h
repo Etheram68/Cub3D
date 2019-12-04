@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/22 10:39:38 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/03 17:36:57 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 11:21:07 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -72,7 +72,8 @@ typedef struct	s_player
 	int			d;
 	int			leftarrow;
 	int			rightarrow;
-
+	double		speed_move;
+	double		speed_rot;
 }				t_player;
 
 typedef struct	s_map
@@ -89,6 +90,8 @@ typedef struct	s_map
 	char		*sprite;
 	char		*color_ceil;
 	char		*color_floor;
+	long		floor;
+	long		ceil;
 	t_color		rgb;
 	t_player	player;
 	t_id		id;

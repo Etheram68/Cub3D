@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 11:28:03 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 17:06:16 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 11:36:23 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -32,5 +32,13 @@ int		is_texture(char c)
 	if (c == 'N' || c == 'S' || c == 'E' || c == 'W' || c == 'O'
 		|| c == 'A' || c == ' ' || c == 'S')
 		return (TRUE);
+	return (FALSE);
+}
+
+int		ft_is_border(char c, t_map *map)
+{
+	if (c == 1)
+		return (TRUE);
+	print_error("Error:\nThe border is not a wall\n", map);
 	return (FALSE);
 }

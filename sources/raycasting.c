@@ -6,13 +6,12 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/25 13:12:23 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/03 18:43:32 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 11:41:13 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/ft_cube3d.h"
-#include <time.h>
 
 void	draw(t_map *map, int x)
 {
