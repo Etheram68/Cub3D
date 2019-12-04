@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/22 10:39:38 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 11:21:07 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 13:33:05 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -96,6 +96,7 @@ typedef struct	s_map
 	t_player	player;
 	t_id		id;
 	t_rayon		ray;
+	char		dir;
 }				t_map;
 
 #endif

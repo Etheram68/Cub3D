@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 17:11:42 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 12:03:30 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 13:52:16 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,13 +21,30 @@ void	draw_pixel(t_map *map, int x, int y, unsigned int c)
 	map->id.data[i] = c;
 }
 
+unsigned int	get_texture(t_map *map)
+{
+	if (map->ray.hit_side == 1)
+	{
+		if ((map->ray.step.x == -1 && map->ray.step.y == -1) ||
+			(map->ray.step.x == 1 && map->ray.step.y == -1))
+			return (0x990066);
+		if ((map->ray.step.x == -1 && map->ray.step.y == 1) ||
+			(map->ray.step.x == 1 && map->ray.step.y == 1))
+			return (0x0099FF);
+	}
+	if ((map->ray.step.x == -1 && map->ray.step.y == -1) ||
+		(map->ray.step.x == -1 && map->ray.step.y == 1))
+		return (0x009900);
+	return (0xCC6600);
+}
+
 void	draw_line(t_map *map, int x, int start, int end)
 {
 	int				i;
 	unsigned int	c;
 
 	i = -1;
-	c = 0xff9600;
+	c = get_texture(map);
 	while (++i < start)
 	{
 		draw_pixel(map, x, i, map->ceil);

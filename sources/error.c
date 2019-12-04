@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:13:24 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 11:36:15 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 13:30:04 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -40,10 +40,11 @@ void	ft_check_texture(char *line, t_map *map)
 			print_error("Error:\nInvalid texture east\n", map);
 }
 
-void	ft_check_multi_player_start(t_map *map)
+void	ft_check_multi_player_start(t_map *map, char dir)
 {
 	if (map->player.pos.x != 0 && map->player.pos.y != 0)
 		print_error("Error:\nInvalid map you are twince player start\n", map);
+	map->dir = dir;
 }
 
 void	ft_check_player_start(t_map *map)

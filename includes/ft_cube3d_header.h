@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:04:51 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 11:45:06 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 13:40:32 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -51,7 +51,7 @@ int		map_player_start(char c);
 **				Check parsing					**
 */
 void	ft_check_texture(char *line, t_map *map);
-void	ft_check_multi_player_start(t_map *map);
+void	ft_check_multi_player_start(t_map *map, char dir);
 void	ft_check_player_start(t_map *map);
 void	ft_check_map_is_valide(t_map *map);
 
