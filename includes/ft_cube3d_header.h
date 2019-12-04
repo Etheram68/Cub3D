@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:04:51 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 13:40:32 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 14:31:13 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,6 +19,7 @@
 /*
 **				Init Struct						**
 */
+
 void	ft_init_struct(t_map *map);
 void	ft_init_player(t_map *map);
 void	ft_init_id(t_map *map);
@@ -26,6 +27,7 @@ void	ft_init_id(t_map *map);
 /*
 **				Open Map and parse				**
 */
+
 int		ft_open_map(char **av, t_map *map);
 int		ft_count_size_map(int fd, t_map *map);
 void	ft_count_heigth_map(char *line, int *size_map);
@@ -42,6 +44,7 @@ void	ft_check_type(char *line, t_map *map);
 /*
 **						Bool					**
 */
+
 int		is_texture(char c);
 int		map_is_valide(char c);
 int		ft_is_border(char c, t_map *map);
@@ -50,6 +53,7 @@ int		map_player_start(char c);
 /*
 **				Check parsing					**
 */
+
 void	ft_check_texture(char *line, t_map *map);
 void	ft_check_multi_player_start(t_map *map, char dir);
 void	ft_check_player_start(t_map *map);
@@ -58,6 +62,7 @@ void	ft_check_map_is_valide(t_map *map);
 /*
 **				Raycasting						**
 */
+
 int		ft_raycasting(t_map *map);
 void	init_rayon(t_map *map, int x);
 void	rayon_side(t_map *map);
@@ -67,12 +72,14 @@ void	draw(t_map *map, int x);
 /*
 **				Draw map						**
 */
+
 void	draw_line(t_map *map, int x, int start, int end);
 void	draw_pixel(t_map *map, int x, int i, unsigned int c);
 
 /*
 **			Gestion of move for player 			**
 */
+
 int		ft_releaseinput(int i, t_map *map);
 int		ft_holdinput(int key, t_map *map);
 int		deal_key(t_map *map);

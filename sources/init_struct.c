@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 12:12:15 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 13:40:21 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 14:42:05 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,12 +15,12 @@
 
 void	ft_init_player(t_map *map)
 {
-	map->player.pos.x = 0;
 	map->player.pos.y = 0;
-	map->player.dir.x = -1;
-	map->player.dir.y = 0;
-	map->player.plane.x = 0;
-	map->player.plane.y = 0.66;
+	map->player.pos.x = 0;
+	map->player.dir.y = -1;
+	map->player.dir.x = 0;
+	map->player.plane.y = 0;
+	map->player.plane.x = 0.66;
 	map->player.speed_move = 0.04;
 	map->player.speed_rot = 0.03;
 }

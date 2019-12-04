@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 17:11:42 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 13:52:16 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/04 14:40:31 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,15 +25,15 @@ unsigned int	get_texture(t_map *map)
 {
 	if (map->ray.hit_side == 1)
 	{
-		if ((map->ray.step.x == -1 && map->ray.step.y == -1) ||
-			(map->ray.step.x == 1 && map->ray.step.y == -1))
+		if ((map->ray.step.y == -1 && map->ray.step.x == -1) ||
+			(map->ray.step.y == 1 && map->ray.step.x == -1))
 			return (0x990066);
-		if ((map->ray.step.x == -1 && map->ray.step.y == 1) ||
-			(map->ray.step.x == 1 && map->ray.step.y == 1))
+		if ((map->ray.step.y == -1 && map->ray.step.x == 1) ||
+			(map->ray.step.y == 1 && map->ray.step.x == 1))
 			return (0x0099FF);
 	}
-	if ((map->ray.step.x == -1 && map->ray.step.y == -1) ||
-		(map->ray.step.x == -1 && map->ray.step.y == 1))
+	if ((map->ray.step.y == -1 && map->ray.step.x == -1) ||
+		(map->ray.step.y == -1 && map->ray.step.x == 1))
 		return (0x009900);
 	return (0xCC6600);
 }
