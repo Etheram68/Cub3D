@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/22 10:39:38 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 13:39:43 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 18:08:16 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -58,7 +58,6 @@ typedef struct	s_rayon
 	double		cam;
 	int			hit;
 	int			hit_side;
-
 }				t_rayon;
 
 typedef struct	s_player

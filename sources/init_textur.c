@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 13:49:10 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 13:53:42 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 13:56:40 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,8 +17,8 @@ void	ft_init_tex(t_map *map)
 {
 	int		i;
 
-	i = 0;
-	while (i < 5)
+	i = -1;
+	while (++i < 5)
 	{
 		map->tex[i].bits = 0;
 		map->tex[i].line = 0;
