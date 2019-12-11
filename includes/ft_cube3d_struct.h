@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/22 10:39:38 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 18:18:19 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/10 15:51:27 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -77,6 +77,17 @@ typedef struct	s_player
 	double		speed_rot;
 }				t_player;
 
+typedef	struct	s_north
+{
+	void		*image;
+	int			*data;
+	int			bits;
+	int			line;
+	int			endian;
+	int			size;
+}				t_north;
+
+
 typedef struct	s_map
 {
 	int			**map;
@@ -98,6 +109,7 @@ typedef struct	s_map
 	t_id		id;
 	t_rayon		ray;
 	char		dir;
+	t_north		north;
 }				t_map;
 
 #endif

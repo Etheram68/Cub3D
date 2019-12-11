@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:29:11 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 17:59:01 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/10 16:00:47 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -58,6 +58,7 @@ int		try(t_map *map)
 int		main(int ac, char **av)
 {
 	t_map	map;
+	int		size = 64;
 
 	ft_init_struct(&map);
 	if (ac == 2)
@@ -72,6 +73,8 @@ int		main(int ac, char **av)
 	map.id.image = mlx_new_image(map.id.mlx, map.w_width, map.w_height);
 	map.id.data = (int *)mlx_get_data_addr(map.id.image,
 							&map.id.bits, &map.id.line, &map.id.endian);
+	map.north.image = mlx_xpm_file_to_image(map.id.mlx, map.t_north, &size, &size);
+	map.north.data = (int *)mlx_get_data_addr(map.north.image, &map.north.bits, &map.north.line, &map.north.endian);
 	ft_init_dir_player(&map);
 	mlx_loop_hook(map.id.mlx, deal_key, &map);
 	mlx_hook(map.id.windows, 2, 0, ft_holdinput, &map);

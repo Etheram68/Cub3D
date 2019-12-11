@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 17:11:42 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 17:56:02 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/10 20:56:06 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -34,7 +34,7 @@ unsigned int	get_texture(t_map *map)
 	}
 	if ((map->ray.step.y == -1 && map->ray.step.x == -1) ||
 		(map->ray.step.y == -1 && map->ray.step.x == 1))
-		return (0x009900);
+		return (1);
 	return (0xCC6600);
 }
 
@@ -51,7 +51,12 @@ void			draw_line(t_map *map, int x, int start, int end)
 	}
 	while (++i <= end && i < map->w_height)
 	{
-		draw_pixel(map, x, i, c);
+		if (c == 1)
+		{
+			draw_pixel(map, x, i, map->north.data[((i + (end - 1100)) * 64) + x]);
+		}
+		else
+			draw_pixel(map, x, i, c);
 	}
 	while (++i < map->w_height)
 		draw_pixel(map, x, i, map->floor);

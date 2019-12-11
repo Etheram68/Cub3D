@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:04:51 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 18:12:35 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/10 13:11:11 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -76,7 +76,7 @@ void	draw(t_map *map, int x);
 */
 
 void	draw_line(t_map *map, int x, int start, int end);
-void	draw_pixel(t_map *map, int x, int i, unsigned int c);
+void	draw_pixel(t_map *map, int x, int y, unsigned int c);
 
 /*
 **			Gestion of move for player 			**
