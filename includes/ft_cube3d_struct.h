@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/22 10:39:38 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 14:13:20 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 15:28:01 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -59,6 +59,7 @@ typedef struct	s_rayon
 	int			hit;
 	int			hit_side;
 	int			len;
+	int			sprite;
 }				t_rayon;
 
 typedef struct	s_player

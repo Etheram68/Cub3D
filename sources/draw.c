@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 17:11:42 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 14:26:32 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 15:08:56 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,6 +23,8 @@ void			draw_pixel(t_map *map, int x, int y, unsigned int c)
 
 unsigned int	get_texture(t_map *map)
 {
+	if (RAY.sprite == 1)
+		return (4);
 	if (RAY.hit_side == 1)
 	{
 		if ((RAY.step.y == -1 && RAY.step.x == -1) ||

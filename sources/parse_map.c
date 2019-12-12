@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 12:48:43 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/30 11:02:37 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 15:26:01 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,7 +28,7 @@ void	ft_texture(char *line, t_map *map)
 		map->t_west = ft_strjoin(map->t_west, &line[i++]);
 	else if (line[0] == 'E')
 		map->t_east = ft_strjoin(map->t_east, &line[i++]);
-	else if (line[0] == 'S' && line[1] != 'O')
+	else if (line[0] == 'S')
 		map->sprite = ft_strjoin(map->sprite, &line[i++]);
 	ft_check_texture(line, map);
 }

@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:04:51 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 14:22:17 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 15:09:12 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,6 +27,7 @@ void	ft_init_dir_player(t_map *map);
 void	ft_init_dir_player_ew(t_map *map);
 void	ft_init_tex(t_map *map);
 void	ft_init_texture(t_map *map);
+void	ft_init_sprite(t_map *map);
 
 /*
 **				Open Map and parse				**
@@ -72,6 +73,8 @@ void	init_rayon(t_map *map, int x);
 void	rayon_side(t_map *map);
 void	rayon_dist(t_map *map);
 void	draw(t_map *map, int x);
+void	cal_dist_sprite(t_map *map);
+void	cal_dist_wall(t_map *map);
 
 /*
 **				Draw map						**

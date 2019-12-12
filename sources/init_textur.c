@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 13:49:10 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 13:58:03 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 15:27:30 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,6 +25,18 @@ void	ft_init_tex(t_map *map)
 		map->tex[i].endian = 0;
 		map->tex[i].size = 64;
 	}
+}
+
+void	ft_init_sprite(t_map *map)
+{
+	int		size;
+
+	size = 64;
+	RAY.sprite = 0;
+	map->tex[4].image = mlx_xpm_file_to_image(map->id.mlx,
+									map->sprite, &size, &size);
+	map->tex[4].data = (int *)mlx_get_data_addr(map->tex[4].image,
+					&map->tex[4].bits, &map->tex[4].line, &map->tex[4].endian);
 }
 
 void	ft_init_texture(t_map *map)
@@ -48,4 +60,5 @@ void	ft_init_texture(t_map *map)
 									map->t_west, &size, &size);
 	map->tex[3].data = (int *)mlx_get_data_addr(map->tex[3].image,
 					&map->tex[3].bits, &map->tex[3].line, &map->tex[3].endian);
+	ft_init_sprite(map);
 }
