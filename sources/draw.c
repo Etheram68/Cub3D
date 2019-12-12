@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 17:11:42 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 14:19:42 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 14:26:32 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,7 +27,7 @@ unsigned int	get_texture(t_map *map)
 	{
 		if ((RAY.step.y == -1 && RAY.step.x == -1) ||
 			(RAY.step.y == 1 && RAY.step.x == -1))
-			return (1);
+			return (3);
 		if ((RAY.step.y == -1 && RAY.step.x == 1) ||
 			(RAY.step.y == 1 && RAY.step.x == 1))
 			return (2);
@@ -35,7 +35,7 @@ unsigned int	get_texture(t_map *map)
 	if ((RAY.step.y == -1 && RAY.step.x == -1) ||
 		(RAY.step.y == -1 && RAY.step.x == 1))
 		return (0);
-	return (3);
+	return (1);
 }
 
 void			draw_wall(t_map *map, int i)
