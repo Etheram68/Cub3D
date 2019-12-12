@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 17:11:42 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 15:08:56 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 17:02:43 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,8 +23,6 @@ void			draw_pixel(t_map *map, int x, int y, unsigned int c)
 
 unsigned int	get_texture(t_map *map)
 {
-	if (RAY.sprite == 1)
-		return (4);
 	if (RAY.hit_side == 1)
 	{
 		if ((RAY.step.y == -1 && RAY.step.x == -1) ||
@@ -59,18 +57,19 @@ void			draw_wall(t_map *map, int i)
 void			draw_line(t_map *map, int x, int start, int end)
 {
 	int				i;
+	int				p;
 	unsigned int	c;
 
 	i = -1;
-	c = get_texture(map);
+	p = get_texture(map);
 	while (++i < start)
 		draw_pixel(map, x, i, map->ceil);
 	i--;
 	while (++i <= end && i < map->w_height)
 	{
 		draw_wall(map, i);
-		draw_pixel(map, x, i, map->tex[c].data[64 * WALL.tex_y
-					+ WALL.tex_x]);
+		c = map->tex[p].data[64 * WALL.tex_y + WALL.tex_x];
+		draw_pixel(map, x, i, c);
 	}
 	i--;
 	while (++i < map->w_height)
