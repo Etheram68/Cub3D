@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:04:51 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 15:09:12 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 19:00:01 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -73,8 +73,6 @@ void	init_rayon(t_map *map, int x);
 void	rayon_side(t_map *map);
 void	rayon_dist(t_map *map);
 void	draw(t_map *map, int x);
-void	cal_dist_sprite(t_map *map);
-void	cal_dist_wall(t_map *map);
 
 /*
 **				Draw map						**

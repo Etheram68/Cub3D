@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 17:11:42 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 17:02:43 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 18:59:16 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -50,7 +50,7 @@ void			draw_wall(t_map *map, int i)
 		WALL.tex_x = 64 - WALL.tex_x - 1;
 	if (RAY.hit_side == 1 && PLAYER.dir.x < 0)
 		WALL.tex_x = 64 - WALL.tex_x - 1;
-	WALL.tex_y = (((i * 256 - 1080 * 128 + RAY.len * 128)
+	WALL.tex_y = (((i * 256 - map->w_height * 128 + RAY.len * 128)
 				* 64) / RAY.len) / 256;
 }
 
