@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/25 13:12:23 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 18:35:44 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 14:02:40 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,15 +15,14 @@
 
 void	draw(t_map *map, int x)
 {
-	int		len;
 	int		range_start;
 	int		range_end;
 
-	len = (int)(map->w_height / RAY.dist);
-	range_start = -len / 2 + map->w_height / 2;
+	RAY.len = (int)(map->w_height / RAY.dist);
+	range_start = -RAY.len / 2 + map->w_height / 2;
 	if (range_start < 0)
 		range_start = 0;
-	range_end = len / 2 + map->w_height / 2;
+	range_end = RAY.len / 2 + map->w_height / 2;
 	if (range_end >= map->w_height)
 		range_end = map->w_height - 1;
 	draw_line(map, x, range_start, range_end);
