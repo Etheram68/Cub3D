@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:04:51 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 13:50:49 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 14:22:17 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -26,7 +26,7 @@ void	ft_init_id(t_map *map);
 void	ft_init_dir_player(t_map *map);
 void	ft_init_dir_player_ew(t_map *map);
 void	ft_init_tex(t_map *map);
-void	ft_init_texture(t_map * map);
+void	ft_init_texture(t_map *map);
 
 /*
 **				Open Map and parse				**
@@ -79,6 +79,7 @@ void	draw(t_map *map, int x);
 
 void	draw_line(t_map *map, int x, int start, int end);
 void	draw_pixel(t_map *map, int x, int y, unsigned int c);
+void	draw_wall(t_map *map, int i);
 
 /*
 **			Gestion of move for player 			**

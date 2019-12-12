@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/22 10:39:38 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 14:02:21 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 14:13:20 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -87,6 +87,13 @@ typedef	struct	s_tex
 	int			size;
 }				t_tex;
 
+typedef struct	s_wall
+{
+	int			tex_x;
+	int			tex_y;
+	double		wall;
+}				t_wall;
+
 typedef struct	s_map
 {
 	int			**map;
@@ -108,6 +115,7 @@ typedef struct	s_map
 	t_id		id;
 	t_rayon		ray;
 	char		dir;
+	t_wall		wall;
 	t_tex		tex[4];
 }				t_map;
 

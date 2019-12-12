@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/22 17:59:01 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/02 15:58:37 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 14:18:30 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,6 +17,7 @@
 # define FOV 60
 # define RAY map->ray
 # define PLAYER map->player
+# define WALL map->wall
 
 /*
 **					DEFINE KEYBOARD				**

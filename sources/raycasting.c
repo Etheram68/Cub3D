@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/25 13:12:23 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 14:02:40 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 14:21:29 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -85,7 +85,7 @@ void	rayon_side(t_map *map)
 **	Initialisation des informations du rayon
 **	Ray.dir correspond a la direction ou vas le rayon
 **	PLAYER.plane correspond au plan de la camera du joueur (FOV)
-**	RAY.delta correspond a la distance que dois parcourir pour ce rendre de chaque coté
+**	RAY.delta correspond a la distance que dois parcourir entre chaque coté
 */
 
 void	init_rayon(t_map *map, int x)

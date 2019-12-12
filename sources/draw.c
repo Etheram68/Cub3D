@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 17:11:42 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 20:00:34 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/12 14:19:42 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,54 +23,54 @@ void			draw_pixel(t_map *map, int x, int y, unsigned int c)
 
 unsigned int	get_texture(t_map *map)
 {
-	if (map->ray.hit_side == 1)
+	if (RAY.hit_side == 1)
 	{
-		if ((map->ray.step.y == -1 && map->ray.step.x == -1) ||
-			(map->ray.step.y == 1 && map->ray.step.x == -1))
+		if ((RAY.step.y == -1 && RAY.step.x == -1) ||
+			(RAY.step.y == 1 && RAY.step.x == -1))
 			return (1);
-		if ((map->ray.step.y == -1 && map->ray.step.x == 1) ||
-			(map->ray.step.y == 1 && map->ray.step.x == 1))
+		if ((RAY.step.y == -1 && RAY.step.x == 1) ||
+			(RAY.step.y == 1 && RAY.step.x == 1))
 			return (2);
 	}
-	if ((map->ray.step.y == -1 && map->ray.step.x == -1) ||
-		(map->ray.step.y == -1 && map->ray.step.x == 1))
+	if ((RAY.step.y == -1 && RAY.step.x == -1) ||
+		(RAY.step.y == -1 && RAY.step.x == 1))
 		return (0);
 	return (3);
+}
+
+void			draw_wall(t_map *map, int i)
+{
+	if (RAY.hit_side == 0)
+		WALL.wall = PLAYER.pos.x + RAY.dist * RAY.dir.x;
+	else
+		WALL.wall = PLAYER.pos.y + RAY.dist * RAY.dir.y;
+	WALL.wall -= floor(WALL.wall);
+	WALL.tex_x = (int)(WALL.wall * (double)(64));
+	if (RAY.hit_side == 0 && PLAYER.dir.y > 0)
+		WALL.tex_x = 64 - WALL.tex_x - 1;
+	if (RAY.hit_side == 1 && PLAYER.dir.x < 0)
+		WALL.tex_x = 64 - WALL.tex_x - 1;
+	WALL.tex_y = (((i * 256 - 1080 * 128 + RAY.len * 128)
+				* 64) / RAY.len) / 256;
 }
 
 void			draw_line(t_map *map, int x, int start, int end)
 {
 	int				i;
 	unsigned int	c;
-	int				text_x;
-	int				text_y;
-	double			wall_x;
-	int				line_heigth;
 
 	i = -1;
 	c = get_texture(map);
-	line_heigth = (int)(map->w_height / RAY.dist);
 	while (++i < start)
-	{
 		draw_pixel(map, x, i, map->ceil);
-	}
 	i--;
-	while (++i <= end && i < map->w_height - 1)
+	while (++i <= end && i < map->w_height)
 	{
-			if (RAY.hit_side == 0)
-				wall_x = PLAYER.pos.x + RAY.dist * RAY.dir.x;
-			else
-				wall_x = PLAYER.pos.y + RAY.dist * RAY.dir.y;
-			wall_x -= floor(wall_x);
-			text_x = (int)(wall_x * (double)(64));
-			if (RAY.hit_side == 0 && PLAYER.dir.y > 0)
-				text_x = 64 - text_x - 1;
-			if (RAY.hit_side == 1 && PLAYER.dir.x < 0)
-				text_x = 64 - text_x - 1;
-			text_y = (((i * 256 - 1080 * 128 + line_heigth * 128) * 64) / line_heigth) / 256;
-			draw_pixel(map, x, i, map->tex[c].data[64 * text_y + text_x]);
+		draw_wall(map, i);
+		draw_pixel(map, x, i, map->tex[c].data[64 * WALL.tex_y
+					+ WALL.tex_x]);
 	}
 	i--;
-	while (++i < map->w_height - 1)
+	while (++i < map->w_height)
 		draw_pixel(map, x, i, map->floor);
 }
