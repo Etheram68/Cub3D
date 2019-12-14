@@ -6,14 +6,14 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/25 13:12:23 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/14 12:41:21 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/14 15:45:29 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/ft_cube3d.h"
 
-void	draw(t_map *map, int x, t_sprite *spr)
+void	draw(t_map *map, int x)
 {
 	RAY.len = (int)(map->w_height / RAY.dist);
 	RAY.start = -RAY.len / 2 + map->w_height / 2;
@@ -22,7 +22,7 @@ void	draw(t_map *map, int x, t_sprite *spr)
 	RAY.end = RAY.len / 2 + map->w_height / 2;
 	if (RAY.end >= map->w_height)
 		RAY.end = map->w_height - 1;
-	draw_line(map, x, spr);
+	draw_line(map, x);
 }
 
 void	rayon_dist(t_map *map, t_sprite *spr)
@@ -115,7 +115,9 @@ int		ft_raycasting(t_map *map)
 		init_rayon(map, x);
 		rayon_side(map);
 		rayon_dist(map, spr);
-		draw(map, x, spr);
+		draw(map, x);
+		if (RAY.sprite == 1)
+			draw_spr(map, x, spr);
 	}
 	return (1);
 }

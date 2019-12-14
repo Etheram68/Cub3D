@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:04:51 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/14 12:41:59 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/14 16:07:31 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -72,7 +72,7 @@ int		ft_raycasting(t_map *map);
 void	init_rayon(t_map *map, int x);
 void	rayon_side(t_map *map);
 void	rayon_dist(t_map *map, t_sprite *spr);
-void	draw(t_map *map, int x, t_sprite *spr);
+void	draw(t_map *map, int x);
 void	dist_wall(t_map *map);
 
 /*
@@ -80,14 +80,16 @@ void	dist_wall(t_map *map);
 */
 
 void	dist_sprite(t_map *map, t_sprite *spr);
+void	calc_sprite(t_map *map, int i);
+void	draw_spr(t_map *map, int x, t_sprite *spr);
 
 /*
 **				Draw map						**
 */
 
-void	draw_line(t_map *map, int x, t_sprite *spr);
-void	draw_pixel(t_map *map, int x, int y, unsigned int c);
-void	draw_wall(t_map *map, int i);
+void	draw_line(t_map *map, int x);
+void	draw_wall(t_map *map, int x, int y, unsigned int c);
+void	calc_wall(t_map *map, int i);
 
 /*
 **			Gestion of move for player 			**
