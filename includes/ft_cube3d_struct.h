@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/22 10:39:38 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 19:00:40 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/14 12:34:14 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -60,6 +60,8 @@ typedef struct	s_rayon
 	int			hit_side;
 	int			len;
 	int			sprite;
+	int			start;
+	int			end;
 }				t_rayon;
 
 typedef struct	s_player
@@ -95,6 +97,13 @@ typedef struct	s_wall
 	double		wall;
 }				t_wall;
 
+typedef struct	s_sprite
+{
+	t_vectord	pos;
+	char		type;
+	double		dist;
+}				t_sprite;
+
 typedef struct	s_map
 {
 	int			**map;
@@ -102,6 +111,7 @@ typedef struct	s_map
 	int			map_width;
 	int			w_height;
 	int			w_width;
+	int			spr_i;
 	char		*t_north;
 	char		*t_south;
 	char		*t_west;

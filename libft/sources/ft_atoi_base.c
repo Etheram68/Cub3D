@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/29 17:25:42 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 17:51:46 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/14 12:43:38 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -34,7 +34,7 @@ static int		ft_get_base(char c, char *base)
 	return (i);
 }
 
-int		ft_atoi_base(const char *str, int base)
+int				ft_atoi_base(const char *str, int base)
 {
 	int		i;
 	size_t	nb;

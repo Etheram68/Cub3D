@@ -6,29 +6,26 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/25 13:12:23 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 18:59:00 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/14 12:41:21 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/ft_cube3d.h"
 
-void	draw(t_map *map, int x)
+void	draw(t_map *map, int x, t_sprite *spr)
 {
-	int		range_start;
-	int		range_end;
-
 	RAY.len = (int)(map->w_height / RAY.dist);
-	range_start = -RAY.len / 2 + map->w_height / 2;
-	if (range_start < 0)
-		range_start = 0;
-	range_end = RAY.len / 2 + map->w_height / 2;
-	if (range_end >= map->w_height)
-		range_end = map->w_height - 1;
-	draw_line(map, x, range_start, range_end);
+	RAY.start = -RAY.len / 2 + map->w_height / 2;
+	if (RAY.start < 0)
+		RAY.start = 0;
+	RAY.end = RAY.len / 2 + map->w_height / 2;
+	if (RAY.end >= map->w_height)
+		RAY.end = map->w_height - 1;
+	draw_line(map, x, spr);
 }
 
-void	rayon_dist(t_map *map)
+void	rayon_dist(t_map *map, t_sprite *spr)
 {
 	while (RAY.hit == 0)
 	{
@@ -45,15 +42,9 @@ void	rayon_dist(t_map *map)
 			RAY.hit_side = 1;
 		}
 		if (map->map[RAY.map.y][RAY.map.x] == 1)
-		{
-			RAY.hit = 1;
-			if (RAY.hit_side == 0)
-				RAY.dist = (RAY.map.y - RAY.pos.y + (1 - RAY.step.y)
-								/ 2) / RAY.dir.y;
-			else
-				RAY.dist = (RAY.map.x - RAY.pos.x + (1 - RAY.step.x)
-								/ 2) / RAY.dir.x;
-		}
+			dist_wall(map);
+		if (map->map[RAY.map.y][RAY.map.x] > 1)
+			dist_sprite(map, spr);
 	}
 }
 
@@ -100,6 +91,8 @@ void	init_rayon(t_map *map, int x)
 	RAY.hit = 0;
 	RAY.dist = -1;
 	RAY.hit_side = -1;
+	map->spr_i = 0;
+	RAY.sprite = 0;
 }
 
 /*
@@ -112,6 +105,7 @@ void	init_rayon(t_map *map, int x)
 int		ft_raycasting(t_map *map)
 {
 	int				x;
+	t_sprite		spr[20];
 
 	x = -1;
 	RAY.pos.x = PLAYER.pos.x;
@@ -120,8 +114,8 @@ int		ft_raycasting(t_map *map)
 	{
 		init_rayon(map, x);
 		rayon_side(map);
-		rayon_dist(map);
-		draw(map, x);
+		rayon_dist(map, spr);
+		draw(map, x, spr);
 	}
 	return (1);
 }
