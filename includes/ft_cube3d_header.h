@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:04:51 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/14 16:07:31 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 18:38:06 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -80,7 +80,9 @@ void	dist_wall(t_map *map);
 */
 
 void	dist_sprite(t_map *map, t_sprite *spr);
-void	calc_sprite(t_map *map, int i);
+void	draw_sprite(t_map *map, int x, int y, unsigned int c);
+void	draw_line_spr(t_map *map, int x, t_sprite *spr);
+void	calc_sprite(t_map *map, int i, t_sprite *spr);
 void	draw_spr(t_map *map, int x, t_sprite *spr);
 
 /*

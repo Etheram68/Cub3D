@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/22 17:59:01 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/14 11:45:20 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 18:01:16 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,6 +16,7 @@
 
 # define RAY map->ray
 # define PLAYER map->player
+# define SPRITE map->calc_spr
 # define WALL map->wall
 
 /*

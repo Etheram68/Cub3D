@@ -6,23 +6,18 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/12 15:02:56 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/14 16:07:15 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 18:37:20 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/ft_cube3d.h"
 
-void		dist_sprite(t_map *map, t_sprite *spr)
+void			dist_sprite(t_map *map, t_sprite *spr)
 {
-	RAY.sprite = 1;
-	spr[map->spr_i].pos.x = RAY.map.x + 0.5;
-	spr[map->spr_i].pos.y = RAY.map.y + 0.5;
+	spr[map->spr_i].pos.x = RAY.map.x;
+	spr[map->spr_i].pos.y = RAY.map.y;
 	spr[map->spr_i].type = map->map[RAY.map.y][RAY.map.x];
-	spr[map->spr_i].dist = ((PLAYER.pos.y - spr[map->spr_i].pos.y)
-					* (PLAYER.pos.y - spr[map->spr_i].pos.y) +
-						(PLAYER.pos.x - spr[map->spr_i].pos.x)
-							* (PLAYER.pos.x - spr[map->spr_i].pos.x));
 	map->spr_i += 1;
 }
 
@@ -31,53 +26,75 @@ void			draw_sprite(t_map *map, int x, int y, unsigned int c)
 	int		i;
 
 	i = x + (y * map->w_width);
-	if (c != 0)
-		map->id.data[i] = c;
-}
-
-void			calc_sprite(t_map *map, int i)
-{
-	if (RAY.hit_side == 0)
-		WALL.wall = PLAYER.pos.x + RAY.dist * RAY.dir.x;
-	else
-		WALL.wall = PLAYER.pos.y + RAY.dist * RAY.dir.y;
-	WALL.wall -= floor(WALL.wall);
-	WALL.tex_x = (int)(WALL.wall * (double)(64));
-	if (RAY.hit_side == 0 && PLAYER.dir.y > 0)
-		WALL.tex_x = 64 - WALL.tex_x - 1;
-	if (RAY.hit_side == 1 && PLAYER.dir.x < 0)
-		WALL.tex_x = 64 - WALL.tex_x - 1;
-	WALL.tex_y = (((i * 256 - map->w_height * 128 + RAY.len * 128)
-				* 64) / RAY.len) / 256;
+	map->id.data[i] = c;
 }
 
 void			draw_line_spr(t_map *map, int x, t_sprite *spr)
 {
-	int				i;
+	int				y;
 	int				p;
 	unsigned int	c;
 
-	i = -1;
-	p = 4;
-	(void)spr;
+	p = spr[map->spr_i].type;
 	c = 0;
-	i = RAY.start;
-	while (++i <= RAY.end && i < map->w_height)
+	y = SPRITE.start.y;
+	while (y < SPRITE.end.y)
 	{
-		calc_sprite(map, i);
-		c = map->tex[p].data[64 * WALL.tex_y + WALL.tex_x];
-		draw_sprite(map, x, i, c);
+		SPRITE.tex.y = (((y * 256 - map->w_height * 128 +
+					SPRITE.s_height * 128) * 64) / SPRITE.s_height) / 256;
+		c = map->tex[4].data[64 * SPRITE.tex.y + SPRITE.tex.x];
+		if (c != 0)
+			draw_sprite(map, x, y, c);
+		y++;
 	}
 }
 
-void	draw_spr(t_map *map, int x, t_sprite *spr)
+void			calc_sprite(t_map *map, int i, t_sprite *spr)
 {
-	RAY.len = (int)(map->w_height / RAY.dist);
-	RAY.start = -RAY.len / 2 + map->w_height / 2;
-	if (RAY.start < 0)
-		RAY.start = 0;
-	RAY.end = RAY.len / 2 + map->w_height / 2;
-	if (RAY.end >= map->w_height)
-		RAY.end = map->w_height - 1;
-	draw_line_spr(map, x, spr);
+	SPRITE.sprite.x = spr[i].pos.x - PLAYER.pos.x;
+	SPRITE.sprite.y = spr[i].pos.y - PLAYER.pos.y;
+	SPRITE.multi = 1.0 / (PLAYER.plane.x * PLAYER.dir.y -
+					PLAYER.dir.x * PLAYER.plane.y);
+	SPRITE.form.x = SPRITE.multi * (PLAYER.dir.y * SPRITE.sprite.x -
+					PLAYER.dir.x * SPRITE.sprite.y);
+	SPRITE.form.y = SPRITE.multi * (-PLAYER.plane.y * SPRITE.sprite.x +
+					PLAYER.plane.x * SPRITE.sprite.y);
+	SPRITE.screen.x = (int)((map->w_width / 2) *
+					(1 + SPRITE.form.x / SPRITE.form.y));
+	SPRITE.s_height = abs((int)(map->w_height / (SPRITE.form.y)));
+	SPRITE.start.y = -SPRITE.s_height / 2 + map->w_height / 2;
+	if (SPRITE.start.y < 0)
+		SPRITE.start.y = 0;
+	SPRITE.end.y = SPRITE.s_height / 2 + map->w_height / 2;
+	if (SPRITE.end.y >= map->w_height)
+		SPRITE.end.y = map->w_height - 1;
+	SPRITE.s_width = abs((int)(map->w_height / (SPRITE.form.y)));
+	SPRITE.start.x = -SPRITE.s_width / 2 + SPRITE.screen.x;
+	if (SPRITE.start.x < 0)
+		SPRITE.start.x = 0;
+	SPRITE.end.x = SPRITE.s_width / 2 + SPRITE.screen.x;
+	if (SPRITE.end.x >= map->w_width)
+		SPRITE.end.x = map->w_width - 1;
+	SPRITE.save = SPRITE.start.x;
+}
+
+void			draw_spr(t_map *map, int x, t_sprite *spr)
+{
+	int				i;
+
+	i = map->spr_i - 1;
+	while (i >= 0)
+	{
+		calc_sprite(map, i, spr);
+		while (SPRITE.save < SPRITE.end.x)
+		{
+			SPRITE.tex.x = (int)(256 * (SPRITE.save - (-SPRITE.s_width /
+					2 + SPRITE.screen.x)) * 64 / SPRITE.s_width) / 256;
+			if (SPRITE.form.y > 0 && SPRITE.save > 0
+					&& SPRITE.save < map->w_width)
+				draw_line_spr(map, x, spr);
+			SPRITE.save++;
+		}
+		i--;
+	}
 }

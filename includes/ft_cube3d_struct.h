@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/22 10:39:38 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/14 12:34:14 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 18:34:14 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -100,12 +100,26 @@ typedef struct	s_wall
 typedef struct	s_sprite
 {
 	t_vectord	pos;
-	char		type;
-	double		dist;
+	int			type;
 }				t_sprite;
+
+typedef struct	s_sprcast
+{
+	t_vectord	sprite;
+	t_vectord	form;
+	double		multi;
+	t_vectori	screen;
+	t_vectori	start;
+	t_vectori	end;
+	t_vectori	tex;
+	int			s_height;
+	int			s_width;
+	int			save;
+}				t_sprcast;
 
 typedef struct	s_map
 {
+	t_sprcast	calc_spr;
 	int			**map;
 	int			map_heigth;
 	int			map_width;
