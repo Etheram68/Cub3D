@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/12 15:02:56 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 14:41:06 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 15:21:10 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,8 +16,8 @@
 void			dist_sprite(t_map *map, t_sprite *spr)
 {
 	RAY.sprite = 1;
-	spr[map->spr_i].pos.x = RAY.map.x;
-	spr[map->spr_i].pos.y = RAY.map.y;
+	spr[map->spr_i].pos.x = RAY.map.x + 0.5;
+	spr[map->spr_i].pos.y = RAY.map.y + 0.5;
 	spr[map->spr_i].type = map->map[RAY.map.y][RAY.map.x];
 	map->spr_i += 1;
 }
@@ -26,6 +26,7 @@ void			draw_sprite(t_map *map, int x, int y, unsigned int c)
 {
 	int		i;
 
+	x = SPRITE.save;
 	i = x + (y * map->w_width);
 	map->id.data[i] = c;
 }
@@ -82,8 +83,8 @@ void			draw_spr(t_map *map, int x, t_sprite *spr)
 {
 	int				i;
 
-	i = 0;
-	while (i < 1)
+	i = map->spr_i - 1;
+	while (i >= 0)
 	{
 		calc_sprite(map, i, spr);
 		SPRITE.save = SPRITE.start.x;
@@ -96,6 +97,6 @@ void			draw_spr(t_map *map, int x, t_sprite *spr)
 				draw_line_spr(map, x, spr);
 			SPRITE.save++;
 		}
-		i++;
+		i--;
 	}
 }

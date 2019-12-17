@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 13:49:10 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/12 17:30:06 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 14:51:07 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -32,7 +32,6 @@ void	ft_init_sprite(t_map *map)
 	int		size;
 
 	size = 64;
-	RAY.sprite = 0;
 	map->tex[4].image = mlx_xpm_file_to_image(map->id.mlx,
 									map->sprite, &size, &size);
 	map->tex[4].data = (int *)mlx_get_data_addr(map->tex[4].image,
