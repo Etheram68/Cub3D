@@ -29,7 +29,7 @@ static char *fb23fd8631ed4903d7c8565f56e1942c[] = {
 "6 c #D8FCD8",
 "7 c gray99",
 /* pixels */
-"                               @ @                              ",
+"                               @.@                              ",
 "                               #2#                              ",
 "                               .o.                              ",
 "                            oO+++OOoX                           ",

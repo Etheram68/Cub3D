@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/22 10:39:38 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 18:34:14 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 14:41:20 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -108,7 +108,7 @@ typedef struct	s_sprcast
 	t_vectord	sprite;
 	t_vectord	form;
 	double		multi;
-	t_vectori	screen;
+	int			screen;
 	t_vectori	start;
 	t_vectori	end;
 	t_vectori	tex;
