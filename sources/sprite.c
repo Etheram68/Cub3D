@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/12 15:02:56 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 15:29:14 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 18:54:21 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -93,7 +93,8 @@ void			draw_spr(t_map *map, int x, t_sprite *spr, double *size)
 			SPRITE.tex.x = (int)(256 * (SPRITE.save - (-SPRITE.s_width /
 					2 + SPRITE.screen)) * 64 / SPRITE.s_width) / 256;
 			if (SPRITE.form.y > 0 && SPRITE.save > 0
-					&& SPRITE.save < map->w_width && SPRITE.form.y < size[SPRITE.save])
+					&& SPRITE.save < map->w_width &&
+						SPRITE.form.y < size[SPRITE.save])
 				draw_line_spr(map, x, spr);
 			SPRITE.save++;
 		}
