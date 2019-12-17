@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/25 13:12:23 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 15:18:20 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/17 15:28:57 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -106,6 +106,7 @@ int		ft_raycasting(t_map *map)
 {
 	int				x;
 	t_sprite		spr[20];
+	double			size[map->w_width];
 
 	x = -1;
 	RAY.pos.x = PLAYER.pos.x;
@@ -115,9 +116,10 @@ int		ft_raycasting(t_map *map)
 		init_rayon(map, x);
 		rayon_side(map);
 		rayon_dist(map, spr);
+		size[x] = RAY.dist;
 		draw(map, x);
 		if (RAY.sprite == 1)
-			draw_spr(map, x, spr);
+			draw_spr(map, x, spr, size);
 	}
 	return (1);
 }
