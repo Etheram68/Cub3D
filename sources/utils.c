@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 17:04:15 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 15:13:56 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 17:26:16 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,17 +18,15 @@ void	ft_size_windows(char *line, t_map *map)
 	int		i;
 
 	i = 0;
-	while (line[i])
-	{
-		if (line[i] == 'R')
-			map->w_width = ft_atoi(&line[++i]);
-		if (line[i] == ' ')
-			i++;
-		while (line[i] && ft_isdigit(line[i]))
-			i++;
-		if (ft_isdigit(line[++i]))
-			map->w_height = ft_atoi(&line[i]);
-	}
+	if (line[i] == 'R')
+		map->w_width = ft_atoi(&line[++i]);
+	i++;
+	while (line[i] != '\0' && (line[i] >= '0' && line[i] <= '9'))
+		i++;
+	while (line[i] && line[i] == ' ')
+		i++;
+	if (ft_isdigit(line[i]))
+		map->w_height = ft_atoi(&line[i]);
 	if (map->w_height == 0 || map->w_width == 0)
 		print_error("Error:\nSize of windows is invalid\n", map);
 }
