@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:04:51 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 14:49:49 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 16:30:02 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -114,6 +114,7 @@ void	ft_move_cam_left(t_map *map);
 */
 int		print_error(char *str, t_map *map);
 void	ft_free_struct(t_map *map);
+int		print_error_nf(char *str, t_map *map);
 int		try(t_map *map);
 
 #endif

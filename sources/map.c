@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:08:39 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/29 18:23:40 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 16:32:32 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -81,11 +81,11 @@ int		ft_open_map(char **av, t_map *map)
 	int		fd;
 
 	fd = 0;
-	if (!(fd = open(av[1], O_RDONLY)))
-		return (print_error("Error:\nMap file doesn't not exist\n", map));
+	if ((fd = open(av[1], O_RDONLY)) < 0)
+		return (print_error_nf("Error:\nMap file doesn't not exist\n", map));
 	ft_count_size_map(fd, map);
-	if (!(fd = open(av[1], O_RDONLY)))
-		return (print_error("Error:\nMap file doesn't not exist\n", map));
+	if ((fd = open(av[1], O_RDONLY)) < 0)
+		return (print_error_nf("Error:\nMap file doesn't not exist\n", map));
 	ft_parse_map(fd, map);
 	return (1);
 }
