@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 17:04:15 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/14 12:48:28 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 13:17:53 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -85,6 +85,13 @@ void	ft_take_color(char *line, t_map *map)
 	map->ceil = ft_atoi_base(map->color_ceil, 16);
 }
 
+void	ft_take_spr(char c, t_map *map, int y, int j)
+{
+	map->map[y][j] = c - '0';
+	if (map->map[y][j] > 1)
+		dist_sprite(map, y, j);
+}
+
 void	ft_take_map(char *line, t_map *map)
 {
 	int				i;
@@ -98,7 +105,7 @@ void	ft_take_map(char *line, t_map *map)
 	while (line[i])
 	{
 		if (map_is_valide(line[i]))
-			map->map[y][j] = line[i++] - '0';
+			ft_take_spr(line[i++], map, y, j);
 		if (map_player_start(line[i]))
 		{
 			ft_check_multi_player_start(map, line[i]);

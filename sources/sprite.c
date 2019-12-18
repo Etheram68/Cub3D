@@ -6,20 +6,19 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/12 15:02:56 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 18:54:21 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 13:19:02 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/ft_cube3d.h"
 
-void			dist_sprite(t_map *map, t_sprite *spr)
+void			dist_sprite(t_map *map, int y, int x)
 {
-	RAY.sprite = 1;
-	spr[map->spr_i].pos.x = RAY.map.x + 0.5;
-	spr[map->spr_i].pos.y = RAY.map.y + 0.5;
-	spr[map->spr_i].type = map->map[RAY.map.y][RAY.map.x];
-	map->spr_i += 1;
+	map->spr[map->spr_i].pos.x = x + 0.5;
+	map->spr[map->spr_i].pos.y = y + 0.5;
+	map->spr[map->spr_i].type = map->map[y][x];
+	map->spr_i++;
 }
 
 void			draw_sprite(t_map *map, int x, int y, unsigned int c)
@@ -31,13 +30,13 @@ void			draw_sprite(t_map *map, int x, int y, unsigned int c)
 	map->id.data[i] = c;
 }
 
-void			draw_line_spr(t_map *map, int x, t_sprite *spr)
+void			draw_line_spr(t_map *map, int x)
 {
 	int				y;
 	int				p;
 	unsigned int	c;
 
-	p = spr[map->spr_i].type;
+	p = map->spr[map->spr_i].type;
 	c = 0;
 	y = SPRITE.start.y;
 	while (y < SPRITE.end.y)
@@ -51,10 +50,10 @@ void			draw_line_spr(t_map *map, int x, t_sprite *spr)
 	}
 }
 
-void			calc_sprite(t_map *map, int i, t_sprite *spr)
+void			calc_sprite(t_map *map, int i)
 {
-	SPRITE.sprite.x = spr[i].pos.x - PLAYER.pos.x;
-	SPRITE.sprite.y = spr[i].pos.y - PLAYER.pos.y;
+	SPRITE.sprite.x = map->spr[i].pos.x - PLAYER.pos.x;
+	SPRITE.sprite.y = map->spr[i].pos.y - PLAYER.pos.y;
 	SPRITE.multi = 1 / (PLAYER.plane.y * PLAYER.dir.x -
 					PLAYER.dir.y * PLAYER.plane.x);
 	SPRITE.form.x = SPRITE.multi * (PLAYER.dir.x * SPRITE.sprite.y -
@@ -79,14 +78,14 @@ void			calc_sprite(t_map *map, int i, t_sprite *spr)
 		SPRITE.end.x = map->w_width - 1;
 }
 
-void			draw_spr(t_map *map, int x, t_sprite *spr, double *size)
+void			draw_spr(t_map *map, int x, double *size)
 {
 	int				i;
 
-	i = map->spr_i - 1;
-	while (i >= 0)
+	i = 0;
+	while (i < map->spr_i)
 	{
-		calc_sprite(map, i, spr);
+		calc_sprite(map, i);
 		SPRITE.save = SPRITE.start.x;
 		while (SPRITE.save < SPRITE.end.x)
 		{
@@ -95,9 +94,9 @@ void			draw_spr(t_map *map, int x, t_sprite *spr, double *size)
 			if (SPRITE.form.y > 0 && SPRITE.save > 0
 					&& SPRITE.save < map->w_width &&
 						SPRITE.form.y < size[SPRITE.save])
-				draw_line_spr(map, x, spr);
+				draw_line_spr(map, x);
 			SPRITE.save++;
 		}
-		i--;
+		i++;
 	}
 }

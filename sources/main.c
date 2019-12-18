@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:29:11 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 18:53:28 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 10:46:04 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -73,7 +73,6 @@ int		main(int ac, char **av)
 	map.id.data = (int *)mlx_get_data_addr(map.id.image,
 							&map.id.bits, &map.id.line, &map.id.endian);
 	ft_init_texture(&map);
-	printf("ICI\n");
 	ft_init_dir_player(&map);
 	mlx_loop_hook(map.id.mlx, deal_key, &map);
 	mlx_hook(map.id.windows, 2, 0, ft_holdinput, &map);

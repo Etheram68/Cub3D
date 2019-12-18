@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 12:12:15 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/14 11:52:43 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 12:59:03 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -82,6 +82,7 @@ void	ft_init_struct(t_map *map)
 	map->rgb.r = 0;
 	map->rgb.g = 0;
 	map->rgb.b = 0;
+	map->spr_i = 0;
 	ft_init_player(map);
 	ft_init_id(map);
 	ft_init_tex(map);

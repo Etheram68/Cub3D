@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 17:11:42 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 14:27:55 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 12:22:09 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -54,7 +54,7 @@ void			calc_wall(t_map *map, int i)
 				* 64) / RAY.len) / 256;
 }
 
-void		dist_wall(t_map *map)
+void			dist_wall(t_map *map)
 {
 	RAY.hit = 1;
 	if (RAY.hit_side == 0)

@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/22 10:39:38 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 15:24:49 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 13:10:06 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -141,6 +141,7 @@ typedef struct	s_map
 	t_rayon		ray;
 	char		dir;
 	t_wall		wall;
+	t_sprite	spr[50];
 	t_tex		tex[5];
 }				t_map;
 

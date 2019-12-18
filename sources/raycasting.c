@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/25 13:12:23 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 15:28:57 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 13:19:45 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,7 +25,7 @@ void	draw(t_map *map, int x)
 	draw_line(map, x);
 }
 
-void	rayon_dist(t_map *map, t_sprite *spr)
+void	rayon_dist(t_map *map)
 {
 	while (RAY.hit == 0)
 	{
@@ -41,8 +41,6 @@ void	rayon_dist(t_map *map, t_sprite *spr)
 			RAY.map.x += RAY.step.x;
 			RAY.hit_side = 1;
 		}
-		if (map->map[RAY.map.y][RAY.map.x] > 1)
-			dist_sprite(map, spr);
 		if (map->map[RAY.map.y][RAY.map.x] == 1)
 			dist_wall(map);
 	}
@@ -91,7 +89,6 @@ void	init_rayon(t_map *map, int x)
 	RAY.hit = 0;
 	RAY.dist = -1;
 	RAY.hit_side = -1;
-	map->spr_i = 0;
 	RAY.sprite = 0;
 }
 
@@ -105,7 +102,6 @@ void	init_rayon(t_map *map, int x)
 int		ft_raycasting(t_map *map)
 {
 	int				x;
-	t_sprite		spr[20];
 	double			size[map->w_width];
 
 	x = -1;
@@ -115,11 +111,10 @@ int		ft_raycasting(t_map *map)
 	{
 		init_rayon(map, x);
 		rayon_side(map);
-		rayon_dist(map, spr);
+		rayon_dist(map);
 		size[x] = RAY.dist;
 		draw(map, x);
-		if (RAY.sprite == 1)
-			draw_spr(map, x, spr, size);
 	}
+	draw_spr(map, x, size);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:04:51 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 15:29:37 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 13:15:15 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -71,7 +71,7 @@ void	ft_check_map_is_valide(t_map *map);
 int		ft_raycasting(t_map *map);
 void	init_rayon(t_map *map, int x);
 void	rayon_side(t_map *map);
-void	rayon_dist(t_map *map, t_sprite *spr);
+void	rayon_dist(t_map *map);
 void	draw(t_map *map, int x);
 void	dist_wall(t_map *map);
 
@@ -79,11 +79,11 @@ void	dist_wall(t_map *map);
 **				Gestion Sprite					**
 */
 
-void	dist_sprite(t_map *map, t_sprite *spr);
+void	dist_sprite(t_map *map, int y, int x);
 void	draw_sprite(t_map *map, int x, int y, unsigned int c);
-void	draw_line_spr(t_map *map, int x, t_sprite *spr);
-void	calc_sprite(t_map *map, int i, t_sprite *spr);
-void	draw_spr(t_map *map, int x, t_sprite *spr, double *size);
+void	draw_line_spr(t_map *map, int x);
+void	calc_sprite(t_map *map, int i);
+void	draw_spr(t_map *map, int x, double *size);
 
 /*
 **				Draw map						**
