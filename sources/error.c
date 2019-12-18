@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:13:24 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 13:30:04 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 14:50:26 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,26 +17,26 @@ void	ft_check_texture(char *line, t_map *map)
 {
 	if (line[0] == 'N')
 	{
-		if (map->t_north == NULL)
+		if (ft_check_tex(map->t_north))
 			print_error("Error:\nInvalid texture north\n", map);
 	}
 	else if (line[0] == 'S' && line[1] == 'O')
 	{
-		if (map->t_south == NULL)
+		if (ft_check_tex(map->t_south))
 			print_error("Error:\nInvalid texture south\n", map);
 	}
 	else if (line[0] == 'W')
 	{
-		if (map->t_west == NULL)
+		if (ft_check_tex(map->t_west))
 			print_error("Error:\nInvalid texture west\n", map);
 	}
 	else if (line[0] == 'S' && line[1] != 'O')
 	{
-		if (map->sprite == NULL)
+		if (ft_check_tex(map->sprite))
 			print_error("Error:\nInvalid texture for sprite\n", map);
 	}
 	else if (line[0] == 'E')
-		if (map->t_east == NULL)
+		if (ft_check_tex(map->t_east))
 			print_error("Error:\nInvalid texture east\n", map);
 }
 

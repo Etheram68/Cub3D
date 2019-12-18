@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 17:04:15 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 13:17:53 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 15:13:56 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -70,12 +70,12 @@ void	ft_take_color(char *line, t_map *map)
 	if (line[i] == ' ')
 		i++;
 	map->rgb.r = ft_atoi(&line[i]);
-	while (ft_isdigit(line[i]))
+	while (line[i] == ' ' || ft_isdigit(line[i]))
 		i++;
 	if (line[i] == ',')
 		i++;
 	map->rgb.g = ft_atoi(&line[i]);
-	while (ft_isdigit(line[i]))
+	while (line[i] == ' ' || ft_isdigit(line[i]))
 		i++;
 	if (line[i] == ',')
 		i++;

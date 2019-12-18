@@ -6,12 +6,26 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 13:49:10 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/17 14:51:07 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 15:06:03 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/ft_cube3d.h"
+
+int		ft_check_tex(char *tex)
+{
+	int		ret;
+	int		fd;
+
+	ret = 0;
+	if (tex == NULL)
+		return (1);
+	fd = open(tex, O_RDONLY);
+	if (fd < 0)
+		return (1);
+	return (0);
+}
 
 void	ft_init_tex(t_map *map)
 {
