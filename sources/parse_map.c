@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 12:48:43 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 16:50:33 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/19 11:08:41 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -82,6 +82,7 @@ int		ft_parse_map(int fd, t_map *map)
 		ft_check_type(line, map);
 		free(line);
 	}
+	free(line);
 	close(fd);
 	ft_check_player_start(map);
 	ft_check_map_is_valide(map);

@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:08:39 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 16:37:23 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/19 11:08:56 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -72,6 +72,7 @@ int		ft_count_size_map(int fd, t_map *map)
 	}
 	if (map->map_heigth == 0 && map->map_width == 0)
 		print_error("Error:\nMap does not valid\n", map);
+	free(line);
 	close(fd);
 	return (0);
 }

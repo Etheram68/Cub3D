@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 17:11:42 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 12:22:09 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/18 17:30:34 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -69,7 +69,7 @@ void			draw_line(t_map *map, int x)
 {
 	int				i;
 	int				p;
-	unsigned int	c;
+	unsigned long	c;
 
 	i = -1;
 	p = get_texture(map);
