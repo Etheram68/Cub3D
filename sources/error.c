@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:13:24 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 16:32:49 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/19 14:30:29 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -58,7 +58,7 @@ int		print_error(char *str, t_map *map)
 	ft_putstr_fd(str, 2);
 	ft_free_struct(map);
 	exit(EXIT_FAILURE);
-	return (1);
+	return (0);
 }
 
 int		print_error_nf(char *str, t_map *map)
@@ -67,5 +67,5 @@ int		print_error_nf(char *str, t_map *map)
 	free(map->color_ceil);
 	free(map->color_floor);
 	exit(EXIT_FAILURE);
-	return (1);
+	return (0);
 }

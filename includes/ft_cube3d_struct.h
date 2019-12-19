@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/22 10:39:38 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 17:42:35 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/19 14:39:55 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -123,6 +123,7 @@ typedef struct	s_map
 {
 	t_sprcast	calc_spr;
 	int			**map;
+	int			save;
 	int			map_heigth;
 	int			map_width;
 	int			w_height;

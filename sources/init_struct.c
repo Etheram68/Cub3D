@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 12:12:15 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 17:42:41 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/19 14:40:31 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -68,6 +68,7 @@ void	ft_init_id(t_map *map)
 void	ft_init_struct(t_map *map)
 {
 	map->map = NULL;
+	map->save = 0;
 	map->map_heigth = 0;
 	map->map_width = 0;
 	map->w_height = 0;
