@@ -6,7 +6,7 @@
 #    By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/11/20 13:23:24 by frfrey       #+#   ##    ##    #+#        #
-#    Updated: 2019/12/18 18:08:55 by frfrey      ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/19 16:57:10 by frfrey      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -34,7 +34,7 @@ SRC_PATH	=					sources
 SRCS_NAME	= 					main.c map.c error.c key.c bool.c init_struct.c \
 								parse_map.c utils.c raycasting.c draw.c \
 								ft_move_player.c init_textur.c sprite.c \
-								sprite_casting.c \
+								sprite_casting.c bitmap.c \
 
 OBJS		= 					${SRCS:.c=.o}
 
@@ -42,7 +42,7 @@ NAME		= 					Cube3D
 
 RM			= 					rm -f
 
-FLAGS 		= 					-Wall -Wextra -Werror -g3 
+FLAGS 		= 					-Wall -Wextra -Werror -g3
 
 GFLAGS 		=					-lmlx -framework OpenGL -framework AppKit
 

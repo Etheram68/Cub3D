@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:08:39 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/19 11:08:56 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/19 17:48:38 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -85,8 +85,12 @@ void	ft_check_arg(char *name, t_map *map)
 	while (name[i] && name[i] != '.')
 		i++;
 	if (name[i] == '.')
-		if (ft_strncmp(name + i, ".cub", 4) != 0)
+	{
+		if (ft_strncmp(name + i, ".cub", 5) != 0)
 			print_error_nf("Error:\nMap has not extension cub\n", map);
+	}
+	else
+		print_error_nf("Error:\nMap has not extension cub\n", map);
 }
 
 int		ft_open_map(char **av, t_map *map)

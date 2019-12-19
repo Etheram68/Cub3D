@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:04:51 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 16:30:02 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/19 19:20:03 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -116,5 +116,12 @@ int		print_error(char *str, t_map *map);
 void	ft_free_struct(t_map *map);
 int		print_error_nf(char *str, t_map *map);
 int		try(t_map *map);
+
+/*
+**					Bitmap				**
+*/
+void	init_bitmap(t_map *map);
+void	save_bitmap(char *filename, t_map *map);
+void	bitmap_image(t_map *map, int fd, t_bih bih);
 
 #endif
