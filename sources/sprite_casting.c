@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/18 14:13:34 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 14:14:18 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/19 13:45:42 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -53,6 +53,8 @@ void	ft_sort_spr(t_map *map)
 	while (nb > 1)
 	{
 		nb = (nb * 10) / 13;
+		if (nb < 1)
+			nb = 1;
 		while (i < map->spr_i - nb)
 		{
 			y = i + nb;
