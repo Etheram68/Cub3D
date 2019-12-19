@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 17:04:15 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 17:26:16 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/19 20:35:57 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,37 +27,39 @@ void	ft_size_windows(char *line, t_map *map)
 		i++;
 	if (ft_isdigit(line[i]))
 		map->w_height = ft_atoi(&line[i]);
+	if (map->w_height > 1440)
+		map->w_height = 1440;
+	if (map->w_width > 2560)
+		map->w_width = 2560;
 	if (map->w_height == 0 || map->w_width == 0)
 		print_error("Error:\nSize of windows is invalid\n", map);
 }
 
 void	ft_convert_rgb(char *line, t_map *map)
 {
-	char	*r;
-	char	*g;
-	char	*b;
-
-	r = ft_itoa_base(map->rgb.r, 16);
-	if (ft_strlen(r) == 1)
-		r = ft_strjoin_free2("0", r);
-	g = ft_itoa_base(map->rgb.g, 16);
-	if (ft_strlen(g) == 1)
-		g = ft_strjoin_free2("0", g);
-	b = ft_itoa_base(map->rgb.b, 16);
-	if (ft_strlen(b) == 1)
-		b = ft_strjoin_free2("0", b);
-	if (line[0] == 'F')
+	map->r = ft_itoa_base(map->rgb.r, 16);
+	if (ft_strlen(map->r) == 1)
+		map->r = ft_strjoin_free2("0", map->r);
+	map->g = ft_itoa_base(map->rgb.g, 16);
+	if (ft_strlen(map->g) == 1)
+		map->g = ft_strjoin_free2("0", map->g);
+	map->b = ft_itoa_base(map->rgb.b, 16);
+	if (ft_strlen(map->b) == 1)
+		map->b = ft_strjoin_free2("0", map->b);
+	if (line[0] == 'F' && map->color_ceil[0] == '\0')
 	{
-		map->color_ceil = ft_strjoin_free(map->color_ceil, r);
-		map->color_ceil = ft_strjoin_free(map->color_ceil, g);
-		map->color_ceil = ft_strjoin_free(map->color_ceil, b);
+		map->color_ceil = ft_strjoin_free(map->color_ceil, map->r);
+		map->color_ceil = ft_strjoin_free(map->color_ceil, map->g);
+		map->color_ceil = ft_strjoin_free(map->color_ceil, map->b);
 	}
-	else if (line[0] == 'C')
+	else if (line[0] == 'C' && map->color_floor[0] == '\0')
 	{
-		map->color_floor = ft_strjoin_free(map->color_floor, r);
-		map->color_floor = ft_strjoin_free(map->color_floor, g);
-		map->color_floor = ft_strjoin_free(map->color_floor, b);
+		map->color_floor = ft_strjoin_free(map->color_floor, map->r);
+		map->color_floor = ft_strjoin_free(map->color_floor, map->g);
+		map->color_floor = ft_strjoin_free(map->color_floor, map->b);
 	}
+	else
+		print_error("Error:\nWhen take color map\n", map);
 }
 
 void	ft_take_color(char *line, t_map *map)

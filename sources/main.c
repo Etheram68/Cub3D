@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/20 15:29:11 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/19 18:53:13 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/19 20:19:11 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -79,7 +79,7 @@ int		ft_check_argv(int ac, char **av, t_map *map)
 {
 	if (ac == 3)
 	{
-		if (ft_strncmp(av[2], "-save", 6) != 0)
+		if (ft_strncmp(av[2], "--save", 7) != 0)
 			return (print_error("Error:\nInvalid argument\n", map));
 		else
 			map->save = 1;

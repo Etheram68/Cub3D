@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 12:48:43 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/19 11:08:41 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/19 20:17:53 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -45,6 +45,9 @@ void	ft_check_type(char *line, t_map *map)
 		ft_take_color(line, map);
 	else if (line[0] != '\n' && line[0] != '\0' && map_is_valide(line[0]))
 		ft_take_map(line, map);
+	else if (line[0] != '\n' && line[0] != 'R' && line[0] != 'F' &&
+				line[0] != 'C' && !map_is_valide(line[0]) && line[0] != '\0')
+		print_error("Error:\nFille conf is invalid\n", map);
 }
 
 void	ft_check_map_is_valide(t_map *map)
