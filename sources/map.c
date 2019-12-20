@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:08:39 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/20 11:07:05 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 14:58:03 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,14 +18,10 @@ void	ft_count_heigth_map(char *line, int *size_map)
 	int		i;
 
 	i = 0;
-	while (line[i])
-	{
-		if (line[i] && (map_is_valide(line[i])))
-			*size_map = *size_map + 1;
-		if (!map_is_valide(line[i]))
-			break ;
-		i++;
-	}
+	if (line[0] == '\0')
+		return ;
+	if (line[i] && (map_is_valide(line[i])))
+		*size_map = *size_map + 1;
 }
 
 void	ft_count_len_map(char *line, int *len_map, t_map *map)
