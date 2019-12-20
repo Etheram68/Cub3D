@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:04:51 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/20 10:59:52 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 12:02:51 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -64,6 +64,7 @@ void	ft_check_texture(char *line, t_map *map);
 void	ft_check_multi_player_start(t_map *map, char dir);
 void	ft_check_player_start(t_map *map);
 void	ft_check_map_is_valide(t_map *map);
+void	ft_resize_winows(t_map *map);
 
 /*
 **				Raycasting						**
