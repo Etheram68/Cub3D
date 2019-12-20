@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 17:04:15 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/20 19:23:02 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 21:35:09 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,7 +19,11 @@ void	ft_size_windows(char *line, t_map *map)
 
 	i = 0;
 	if (line[i] == 'R')
+	{
+		if (map->w_width != 0)
+			print_error("Error:\nSize of windows is twince\n", map);
 		map->w_width = ft_atoi(&line[++i]);
+	}
 	i++;
 	while (line[i] != '\0' && (line[i] >= '0' && line[i] <= '9'))
 		i++;
@@ -33,9 +37,7 @@ void	ft_size_windows(char *line, t_map *map)
 		map->w_width = 2560;
 	if (map->w_height == 0 || map->w_width == 0)
 		print_error("Error:\nSize of windows is invalid\n", map);
-	if (map->w_height < 11)
-		ft_resize_winows(map);
-	if (map->w_width < 11)
+	if (map->w_height < 11 || map->w_width < 11)
 		ft_resize_winows(map);
 }
 
