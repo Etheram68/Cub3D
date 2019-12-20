@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/12 15:02:56 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/20 20:24:38 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 21:43:46 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,7 +15,7 @@
 
 void			dist_sprite(t_map *map, int y, int x)
 {
-	if (map->spr_i > 50)
+	if (map->spr_i > 49)
 		print_error("Error:\nYou have more sprite on map\n", map);
 	map->spr[map->spr_i].pos.x = x + 0.5;
 	map->spr[map->spr_i].pos.y = y + 0.5;
