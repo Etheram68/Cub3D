@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 12:48:43 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/19 20:17:53 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 11:03:05 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -57,17 +57,19 @@ void	ft_check_map_is_valide(t_map *map)
 
 	i = 0;
 	y = 0;
-	while (map->map[0][y])
-		ft_is_border(map->map[0][y++], map);
-	while (i < map->map_heigth)
-		ft_is_border(map->map[i++][0], map);
-	i = 0;
-	while (i < map->map_heigth)
-		ft_is_border(map->map[i++][y - 1], map);
-	y = 0;
+	while (i < map->map_width)
+		ft_is_border(map->map[y][i++], map);
 	i--;
-	while (map->map[i][y])
-		ft_is_border(map->map[i][y++], map);
+	while (y < map->map_heigth)
+		ft_is_border(map->map[y++][i], map);
+	y = 0;
+	i = 0;
+	while (y < map->map_heigth)
+		ft_is_border(map->map[y++][i], map);
+	i = 0;
+	y--;
+	while (i < map->map_width)
+		ft_is_border(map->map[y][i++], map);
 }
 
 int		ft_parse_map(int fd, t_map *map)

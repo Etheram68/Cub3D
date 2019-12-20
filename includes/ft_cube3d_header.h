@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:04:51 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/19 19:57:23 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 10:59:52 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -53,7 +53,7 @@ void	ft_check_type(char *line, t_map *map);
 
 int		is_texture(char c);
 int		map_is_valide(char c);
-int		ft_is_border(char c, t_map *map);
+int		ft_is_border(int nb, t_map *map);
 int		map_player_start(char c);
 
 /*
