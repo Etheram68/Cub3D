@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/18 14:13:34 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/20 17:42:46 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 18:02:15 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -41,13 +41,27 @@ void	calc_sprite(t_map *map, int i)
 		SPRITE.end.x = map->w_width - 1;
 }
 
+void	ft_swap_spr(t_map *map, int y, int i)
+{
+	int			tmp;
+	double		tmp2;
+
+	if (map->dist[i] < map->dist[y])
+	{
+		tmp2 = map->dist[y];
+		map->dist[y] = map->dist[i];
+		map->dist[i] = tmp2;
+		tmp = map->order[y];
+		map->order[y] = map->order[i];
+		map->order[i] = tmp;
+	}
+}
+
 void	ft_sort_spr(t_map *map)
 {
 	int			i;
 	int			y;
 	int			nb;
-	int			tmp;
-	double		tmp2;
 
 	i = 0;
 	nb = map->spr_i;
@@ -62,14 +76,7 @@ void	ft_sort_spr(t_map *map)
 		{
 			y = i + nb;
 			if (map->dist[i] < map->dist[y])
-			{
-				tmp2 = map->dist[y];
-				map->dist[y] = map->dist[i];
-				map->dist[i] = tmp2;
-				tmp = map->order[y];
-				map->order[y] = map->order[i];
-				map->order[i] = tmp;
-			}
+				ft_swap_spr(map, y, i);
 			i++;
 		}
 	}
