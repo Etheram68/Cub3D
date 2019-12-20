@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 12:48:43 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/20 11:20:23 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 12:16:44 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -89,6 +89,10 @@ int		ft_parse_map(int fd, t_map *map)
 	}
 	free(line);
 	close(fd);
+	if (map->w_height == 0 || map->w_width == 0)
+		print_error("Error:\nParams size of windows does not exist\n", map);
+	if (map->color_floor[0] == '\0' || map->color_ceil[0] == '\0')
+		print_error("Error:\nParams colors does not exist\n", map);
 	ft_check_player_start(map);
 	ft_check_map_is_valide(map);
 	return (1);
