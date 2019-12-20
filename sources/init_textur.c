@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 13:49:10 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 17:38:06 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 11:30:35 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -46,8 +46,9 @@ void	ft_init_sprite(t_map *map)
 	int		size;
 
 	size = 64;
-	map->tex[4].image = mlx_xpm_file_to_image(map->id.mlx,
-									map->sprite, &size, &size);
+	if (!(map->tex[4].image = mlx_xpm_file_to_image(map->id.mlx,
+									map->sprite, &size, &size)))
+		print_error("Error:\nTexture Sprite does not exist\n", map);
 	map->tex[4].data = (int *)mlx_get_data_addr(map->tex[4].image,
 					&map->tex[4].bits, &map->tex[4].line, &map->tex[4].endian);
 }
@@ -57,20 +58,24 @@ void	ft_init_texture(t_map *map)
 	int		size;
 
 	size = 64;
-	map->tex[0].image = mlx_xpm_file_to_image(map->id.mlx,
-									map->t_north, &size, &size);
+	if (!(map->tex[0].image = mlx_xpm_file_to_image(map->id.mlx,
+									map->t_north, &size, &size)))
+		print_error("Error:\nTexture North does not exist\n", map);
 	map->tex[0].data = (int *)mlx_get_data_addr(map->tex[0].image,
 					&map->tex[0].bits, &map->tex[0].line, &map->tex[0].endian);
-	map->tex[1].image = mlx_xpm_file_to_image(map->id.mlx,
-									map->t_south, &size, &size);
+	if (!(map->tex[1].image = mlx_xpm_file_to_image(map->id.mlx,
+									map->t_south, &size, &size)))
+		print_error("Error:\nTexture South does not exist\n", map);
 	map->tex[1].data = (int *)mlx_get_data_addr(map->tex[1].image,
 					&map->tex[1].bits, &map->tex[1].line, &map->tex[1].endian);
-	map->tex[2].image = mlx_xpm_file_to_image(map->id.mlx,
-									map->t_east, &size, &size);
+	if (!(map->tex[2].image = mlx_xpm_file_to_image(map->id.mlx,
+									map->t_east, &size, &size)))
+		print_error("Error:\nTexture East does not exist\n", map);
 	map->tex[2].data = (int *)mlx_get_data_addr(map->tex[2].image,
 					&map->tex[2].bits, &map->tex[2].line, &map->tex[2].endian);
-	map->tex[3].image = mlx_xpm_file_to_image(map->id.mlx,
-									map->t_west, &size, &size);
+	if (!(map->tex[3].image = mlx_xpm_file_to_image(map->id.mlx,
+									map->t_west, &size, &size)))
+		print_error("Error:\nTexture West does not exist\n", map);
 	map->tex[3].data = (int *)mlx_get_data_addr(map->tex[3].image,
 					&map->tex[3].bits, &map->tex[3].line, &map->tex[3].endian);
 	ft_init_sprite(map);
