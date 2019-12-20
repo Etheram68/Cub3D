@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:04:14 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/20 17:41:15 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 17:47:48 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,7 +28,7 @@ int		ft_holdinput(int key, t_map *map)
 	if (key == KEY_D)
 		map->player.d = 1;
 	if (key == KEY_SHIFT_LEFT)
-		PLAYER.speed_move = 0.08;
+		PLAYER.speed_move = 0.10;
 	if (key == KEY_ESCAPE)
 		try(map);
 	return (0);
@@ -49,7 +49,7 @@ int		ft_releaseinput(int key, t_map *map)
 	if (key == KEY_D)
 		map->player.d = 0;
 	if (key == KEY_SHIFT_LEFT)
-		PLAYER.speed_move = 0.04;
+		PLAYER.speed_move = 0.05;
 	return (0);
 }
 
