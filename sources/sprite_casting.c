@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/18 14:13:34 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/20 21:42:40 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 21:52:56 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,7 +15,6 @@
 
 void	calc_sprite(t_map *map, int i)
 {
-	printf("%f\n", map->spr[map->order[i]].pos.x);
 	SPRITE.sprite.x = map->spr[map->order[i]].pos.x - PLAYER.pos.x;
 	SPRITE.sprite.y = map->spr[map->order[i]].pos.y - PLAYER.pos.y;
 	SPRITE.multi = 1 / (PLAYER.plane.y * PLAYER.dir.x -
