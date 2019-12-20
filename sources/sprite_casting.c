@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/18 14:13:34 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/20 18:02:15 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 20:33:32 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -62,21 +62,24 @@ void	ft_sort_spr(t_map *map)
 	int			i;
 	int			y;
 	int			nb;
+	int			invers;
 
 	i = 0;
 	nb = map->spr_i;
-	while (nb > 1)
+	invers = 1;
+	while (invers && nb > 1)
 	{
+		invers = 0;
 		nb = (nb * 10) / 13;
-		if (nb == 9 || nb == 10)
-			nb = 11;
-		if (nb < 1)
-			nb = 1;
 		while (i < map->spr_i - nb)
 		{
-			y = i + nb;
+			y = i + 1;
 			if (map->dist[i] < map->dist[y])
+			{
 				ft_swap_spr(map, y, i);
+				invers = 1;
+				i = 0;
+			}
 			i++;
 		}
 	}
