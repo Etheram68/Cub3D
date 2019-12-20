@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 11:28:03 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/20 14:28:19 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 19:22:46 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -45,16 +45,17 @@ int		ft_is_border(int nb, t_map *map)
 
 void	ft_resize_winows(t_map *map)
 {
-	if (map->w_height < 480)
+
+	if (map->w_height < 11)
 	{
 		ft_putstr_fd(
-			"Warning:\nHeight is less of 480, it has been resized to 480\n", 1);
-		map->w_height = 480;
+			"Warning:\nHeight is less of 11, it has been resized to 11\n", 1);
+		map->w_height = 11;
 	}
-	if (map->w_width < 320)
+	if (map->w_width < 11)
 	{
 		ft_putstr_fd(
-			"Warning:\nWidth is less of 320, it has been resized to 320\n", 1);
-		map->w_width = 320;
+			"Warning:\nWidth is less of 11, it has been resized to 11\n", 1);
+		map->w_width = 11;
 	}
 }

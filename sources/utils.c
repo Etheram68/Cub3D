@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 17:04:15 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/20 15:23:04 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 19:23:02 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -33,9 +33,9 @@ void	ft_size_windows(char *line, t_map *map)
 		map->w_width = 2560;
 	if (map->w_height == 0 || map->w_width == 0)
 		print_error("Error:\nSize of windows is invalid\n", map);
-	if (map->w_height < 480)
+	if (map->w_height < 11)
 		ft_resize_winows(map);
-	if (map->w_width < 320)
+	if (map->w_width < 11)
 		ft_resize_winows(map);
 }
 
