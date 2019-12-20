@@ -6,7 +6,7 @@
 #    By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/11/20 13:23:24 by frfrey       #+#   ##    ##    #+#        #
-#    Updated: 2019/12/19 16:57:10 by frfrey      ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/20 16:54:28 by frfrey      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -38,7 +38,7 @@ SRCS_NAME	= 					main.c map.c error.c key.c bool.c init_struct.c \
 
 OBJS		= 					${SRCS:.c=.o}
 
-NAME		= 					Cube3D
+NAME		= 					Cub3D
 
 RM			= 					rm -f
 

@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/25 13:12:23 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/18 13:19:45 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 17:42:01 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -115,6 +115,6 @@ int		ft_raycasting(t_map *map)
 		size[x] = RAY.dist;
 		draw(map, x);
 	}
-	draw_spr(map, x, size);
+	draw_spr(map, size);
 	return (1);
 }

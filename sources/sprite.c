@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/12 15:02:56 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/20 15:29:44 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/20 17:40:39 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,7 +15,7 @@
 
 void			dist_sprite(t_map *map, int y, int x)
 {
-	if (map->spr_i > 100)
+	if (map->spr_i > 50)
 		print_error("Error:\nYou have more sprite on map\n", map);
 	map->spr[map->spr_i].pos.x = x + 0.5;
 	map->spr[map->spr_i].pos.y = y + 0.5;
@@ -23,16 +23,15 @@ void			dist_sprite(t_map *map, int y, int x)
 	map->spr_i++;
 }
 
-void			draw_sprite(t_map *map, int x, int y, unsigned int c)
+void			draw_sprite(t_map *map, int y, unsigned int c)
 {
 	int		i;
 
-	x = SPRITE.save;
-	i = x + (y * map->w_width);
+	i = SPRITE.save + (y * map->w_width);
 	map->id.data[i] = c;
 }
 
-void			draw_line_spr(t_map *map, int x)
+void			draw_line_spr(t_map *map)
 {
 	int				y;
 	int				p;
@@ -47,12 +46,12 @@ void			draw_line_spr(t_map *map, int x)
 					SPRITE.s_height * 128) * 64) / SPRITE.s_height) / 256;
 		c = map->tex[4].data[64 * SPRITE.tex.y + SPRITE.tex.x];
 		if (c != 0)
-			draw_sprite(map, x, y, c);
+			draw_sprite(map, y, c);
 		y++;
 	}
 }
 
-void			draw_spr(t_map *map, int x, double *size)
+void			draw_spr(t_map *map, double *size)
 {
 	int				i;
 
@@ -69,7 +68,7 @@ void			draw_spr(t_map *map, int x, double *size)
 			if (SPRITE.form.y > 0 && SPRITE.save > 0
 					&& SPRITE.save < map->w_width &&
 						SPRITE.form.y < size[SPRITE.save])
-				draw_line_spr(map, x);
+				draw_line_spr(map);
 			SPRITE.save++;
 		}
 		i++;
