@@ -4,7 +4,7 @@ NO ./resource/path_to_the_north_texture.xpm
 SO ./resource/path_to_the_south_texture.xpm
 WE ./resource/path_to_the_west_texture.xpm
 EA ./resource/path_to_the_east_texture.xpm
-S ./resource/barrel.xpm
+S ./resource/path_to_the_sprite_texture.xpm
 
 
 F 45,153,255
