@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 10:13:24 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/07 13:41:58 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/07 13:55:10 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -43,14 +43,15 @@ void	ft_check_texture(char *line, t_map *map)
 void	ft_check_multi_player_start(t_map *map, char dir)
 {
 	if (map->player.pos.x != 0 && map->player.pos.y != 0)
-		print_error("Error:\nInvalid map you are twince player start\n", map);
+		print_error("Error:\nThe map is invalid, you have more start player\n",
+			map);
 	map->dir = dir;
 }
 
 void	ft_check_player_start(t_map *map)
 {
 	if (map->player.pos.x == 0 && map->player.pos.y == 0)
-		print_error("Error:\nInvalid map you are not player start\n", map);
+		print_error("Error:\nInvalid map you have not player start\n", map);
 }
 
 int		print_error(char *str, t_map *map)

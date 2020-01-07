@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 17:04:15 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/07 13:34:29 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/07 13:53:43 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,7 +21,7 @@ void	ft_size_windows(char *line, t_map *map)
 	if (line[i] == 'R')
 	{
 		if (map->w_width != 0)
-			print_error("Error:\nResolution is twince\n", map);
+			print_error("Error:\nMulti resolution is forbiden\n", map);
 		map->w_width = ft_atoi(&line[++i]);
 	}
 	i++;
