@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 17:11:42 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/07 14:07:48 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/07 15:34:05 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -83,6 +83,6 @@ void			draw_line(t_map *map, int x)
 		draw_wall(map, x, i, c);
 	}
 	i--;
-	while (++i <= map->w_height)
+	while (++i < map->w_height)
 		draw_wall(map, x, i, map->floor);
 }
