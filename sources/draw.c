@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/26 17:11:42 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/07 13:49:02 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/07 14:07:48 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -76,13 +76,13 @@ void			draw_line(t_map *map, int x)
 	while (++i < map->ray.start)
 		draw_wall(map, x, i, map->ceil);
 	i--;
-	while (++i <= map->ray.end && i < map->w_height)
+	while (++i < map->ray.end && i < map->w_height)
 	{
 		calc_wall(map, i);
 		c = map->tex[p].data[64 * map->wall.tex_y + map->wall.tex_x];
 		draw_wall(map, x, i, c);
 	}
 	i--;
-	while (++i < map->w_height)
+	while (++i <= map->w_height)
 		draw_wall(map, x, i, map->floor);
 }
