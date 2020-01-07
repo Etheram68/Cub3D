@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/18 14:13:34 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/20 21:52:56 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/07 13:48:28 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,30 +15,31 @@
 
 void	calc_sprite(t_map *map, int i)
 {
-	SPRITE.sprite.x = map->spr[map->order[i]].pos.x - PLAYER.pos.x;
-	SPRITE.sprite.y = map->spr[map->order[i]].pos.y - PLAYER.pos.y;
-	SPRITE.multi = 1 / (PLAYER.plane.y * PLAYER.dir.x -
-					PLAYER.dir.y * PLAYER.plane.x);
-	SPRITE.form.x = SPRITE.multi * (PLAYER.dir.x * SPRITE.sprite.y -
-					PLAYER.dir.y * SPRITE.sprite.x);
-	SPRITE.form.y = SPRITE.multi * (-PLAYER.plane.x * SPRITE.sprite.y +
-					PLAYER.plane.y * SPRITE.sprite.x);
-	SPRITE.screen = (int)((map->w_width / 2) *
-					(1 + SPRITE.form.x / SPRITE.form.y));
-	SPRITE.s_height = abs((int)(map->w_height / (SPRITE.form.y)));
-	SPRITE.start.y = -SPRITE.s_height / 2 + map->w_height / 2;
-	if (SPRITE.start.y < 0)
-		SPRITE.start.y = 0;
-	SPRITE.end.y = SPRITE.s_height / 2 + map->w_height / 2;
-	if (SPRITE.end.y >= map->w_height)
-		SPRITE.end.y = map->w_height - 1;
-	SPRITE.s_width = abs((int)(map->w_height / (SPRITE.form.y)));
-	SPRITE.start.x = -SPRITE.s_width / 2 + SPRITE.screen;
-	if (SPRITE.start.x < 0)
-		SPRITE.start.x = 0;
-	SPRITE.end.x = SPRITE.s_width / 2 + SPRITE.screen;
-	if (SPRITE.end.x >= map->w_width)
-		SPRITE.end.x = map->w_width - 1;
+	map->csp.sprite.x = map->spr[map->order[i]].pos.x - map->player.pos.x;
+	map->csp.sprite.y = map->spr[map->order[i]].pos.y - map->player.pos.y;
+	map->csp.multi = 1 / (map->player.plane.y * map->player.dir.x -
+					map->player.dir.y * map->player.plane.x);
+	map->csp.form.x = map->csp.multi * (map->player.dir.x * map->csp.sprite.y -
+					map->player.dir.y * map->csp.sprite.x);
+	map->csp.form.y = map->csp.multi *
+		(-map->player.plane.x * map->csp.sprite.y +
+					map->player.plane.y * map->csp.sprite.x);
+	map->csp.screen = (int)((map->w_width / 2) *
+					(1 + map->csp.form.x / map->csp.form.y));
+	map->csp.s_height = abs((int)(map->w_height / (map->csp.form.y)));
+	map->csp.start.y = -map->csp.s_height / 2 + map->w_height / 2;
+	if (map->csp.start.y < 0)
+		map->csp.start.y = 0;
+	map->csp.end.y = map->csp.s_height / 2 + map->w_height / 2;
+	if (map->csp.end.y >= map->w_height)
+		map->csp.end.y = map->w_height - 1;
+	map->csp.s_width = abs((int)(map->w_height / (map->csp.form.y)));
+	map->csp.start.x = -map->csp.s_width / 2 + map->csp.screen;
+	if (map->csp.start.x < 0)
+		map->csp.start.x = 0;
+	map->csp.end.x = map->csp.s_width / 2 + map->csp.screen;
+	if (map->csp.end.x >= map->w_width)
+		map->csp.end.x = map->w_width - 1;
 }
 
 void	ft_swap_spr(t_map *map, int y, int i)
@@ -93,10 +94,10 @@ void	ft_calc_dist_spr(t_map *map)
 	while (i < map->spr_i)
 	{
 		map->order[i] = i;
-		map->dist[i] = ((PLAYER.pos.x - map->spr[i].pos.x) *
-			(PLAYER.pos.x - map->spr[i].pos.x) +
-				(PLAYER.pos.y - map->spr[i].pos.y)
-					* (PLAYER.pos.y - map->spr[i].pos.y));
+		map->dist[i] = ((map->player.pos.x - map->spr[i].pos.x) *
+			(map->player.pos.x - map->spr[i].pos.x) +
+				(map->player.pos.y - map->spr[i].pos.y)
+					* (map->player.pos.y - map->spr[i].pos.y));
 		i++;
 	}
 	ft_sort_spr(map);

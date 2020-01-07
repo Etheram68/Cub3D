@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:25:34 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/20 17:59:41 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/07 13:42:05 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,45 +15,45 @@
 
 void	ft_move_up_down(t_map *map)
 {
-	if (PLAYER.w == 1)
+	if (map->player.w == 1)
 	{
-		if (map->map[(int)(PLAYER.pos.y + PLAYER.dir.y *
-			(PLAYER.speed_move + 0.1))][(int)PLAYER.pos.x] != 1)
-			PLAYER.pos.y += PLAYER.dir.y * PLAYER.speed_move;
-		if (map->map[(int)PLAYER.pos.y][(int)(PLAYER.pos.x +
-			PLAYER.dir.x * (PLAYER.speed_move + 0.1))] != 1)
-			PLAYER.pos.x += PLAYER.dir.x * PLAYER.speed_move;
+		if (map->map[(int)(map->player.pos.y + map->player.dir.y *
+			(map->player.speed_move + 0.1))][(int)map->player.pos.x] != 1)
+			map->player.pos.y += map->player.dir.y * map->player.speed_move;
+		if (map->map[(int)map->player.pos.y][(int)(map->player.pos.x +
+			map->player.dir.x * (map->player.speed_move + 0.1))] != 1)
+			map->player.pos.x += map->player.dir.x * map->player.speed_move;
 	}
-	if (PLAYER.s == 1)
+	if (map->player.s == 1)
 	{
-		if (map->map[(int)(PLAYER.pos.y - PLAYER.dir.y *
-			(PLAYER.speed_move + 0.1))][(int)PLAYER.pos.x] != 1)
-			PLAYER.pos.y -= PLAYER.dir.y * PLAYER.speed_move;
-		if (map->map[(int)PLAYER.pos.y][(int)(PLAYER.pos.x -
-			PLAYER.dir.x * (PLAYER.speed_move + 0.1))] != 1)
-			PLAYER.pos.x -= PLAYER.dir.x * PLAYER.speed_move;
+		if (map->map[(int)(map->player.pos.y - map->player.dir.y *
+			(map->player.speed_move + 0.1))][(int)map->player.pos.x] != 1)
+			map->player.pos.y -= map->player.dir.y * map->player.speed_move;
+		if (map->map[(int)map->player.pos.y][(int)(map->player.pos.x -
+			map->player.dir.x * (map->player.speed_move + 0.1))] != 1)
+			map->player.pos.x -= map->player.dir.x * map->player.speed_move;
 	}
 }
 
 void	ft_move_left_rigth(t_map *map)
 {
-	if (PLAYER.a == 1)
+	if (map->player.a == 1)
 	{
-		if (map->map[(int)(PLAYER.pos.y - PLAYER.dir.x *
-			(PLAYER.speed_move + 0.1))][(int)PLAYER.pos.x] != 1)
-			PLAYER.pos.y -= PLAYER.dir.x * PLAYER.speed_move;
-		if (map->map[(int)PLAYER.pos.y][(int)(PLAYER.pos.x +
-			PLAYER.dir.y * (PLAYER.speed_move + 0.1))] != 1)
-			PLAYER.pos.x += PLAYER.dir.y * PLAYER.speed_move;
+		if (map->map[(int)(map->player.pos.y - map->player.dir.x *
+			(map->player.speed_move + 0.1))][(int)map->player.pos.x] != 1)
+			map->player.pos.y -= map->player.dir.x * map->player.speed_move;
+		if (map->map[(int)map->player.pos.y][(int)(map->player.pos.x +
+			map->player.dir.y * (map->player.speed_move + 0.1))] != 1)
+			map->player.pos.x += map->player.dir.y * map->player.speed_move;
 	}
-	if (PLAYER.d == 1)
+	if (map->player.d == 1)
 	{
-		if (map->map[(int)(PLAYER.pos.y + PLAYER.dir.x *
-			(PLAYER.speed_move + 0.1))][(int)PLAYER.pos.x] != 1)
-			PLAYER.pos.y += PLAYER.dir.x * PLAYER.speed_move;
-		if (map->map[(int)PLAYER.pos.y][(int)(PLAYER.pos.x -
-			PLAYER.dir.y * (PLAYER.speed_move + 0.1))] != 1)
-			PLAYER.pos.x -= PLAYER.dir.y * PLAYER.speed_move;
+		if (map->map[(int)(map->player.pos.y + map->player.dir.x *
+			(map->player.speed_move + 0.1))][(int)map->player.pos.x] != 1)
+			map->player.pos.y += map->player.dir.x * map->player.speed_move;
+		if (map->map[(int)map->player.pos.y][(int)(map->player.pos.x -
+			map->player.dir.y * (map->player.speed_move + 0.1))] != 1)
+			map->player.pos.x -= map->player.dir.y * map->player.speed_move;
 	}
 }
 
@@ -62,18 +62,18 @@ void	ft_move_cam_rigth(t_map *map)
 	double	olddiry;
 	double	oldplaney;
 
-	if (PLAYER.rightarrow == 1)
+	if (map->player.rightarrow == 1)
 	{
-		olddiry = PLAYER.dir.y;
-		PLAYER.dir.y = PLAYER.dir.y * cos(-PLAYER.speed_rot)
-			- PLAYER.dir.x * sin(-PLAYER.speed_rot);
-		PLAYER.dir.x = olddiry * sin(-PLAYER.speed_rot)
-			+ PLAYER.dir.x * cos(-PLAYER.speed_rot);
-		oldplaney = PLAYER.plane.y;
-		PLAYER.plane.y = PLAYER.plane.y * cos(-PLAYER.speed_rot)
-			- PLAYER.plane.x * sin(-PLAYER.speed_rot);
-		PLAYER.plane.x = oldplaney * sin(-PLAYER.speed_rot)
-			+ PLAYER.plane.x * cos(-PLAYER.speed_rot);
+		olddiry = map->player.dir.y;
+		map->player.dir.y = map->player.dir.y * cos(-map->player.speed_rot)
+			- map->player.dir.x * sin(-map->player.speed_rot);
+		map->player.dir.x = olddiry * sin(-map->player.speed_rot)
+			+ map->player.dir.x * cos(-map->player.speed_rot);
+		oldplaney = map->player.plane.y;
+		map->player.plane.y = map->player.plane.y * cos(-map->player.speed_rot)
+			- map->player.plane.x * sin(-map->player.speed_rot);
+		map->player.plane.x = oldplaney * sin(-map->player.speed_rot)
+			+ map->player.plane.x * cos(-map->player.speed_rot);
 	}
 }
 
@@ -82,17 +82,17 @@ void	ft_move_cam_left(t_map *map)
 	double	olddiry;
 	double	oldplaney;
 
-	if (PLAYER.leftarrow == 1)
+	if (map->player.leftarrow == 1)
 	{
-		olddiry = PLAYER.dir.y;
-		PLAYER.dir.y = PLAYER.dir.y * cos(PLAYER.speed_rot)
-			- PLAYER.dir.x * sin(PLAYER.speed_rot);
-		PLAYER.dir.x = olddiry * sin(PLAYER.speed_rot)
-			+ PLAYER.dir.x * cos(PLAYER.speed_rot);
-		oldplaney = PLAYER.plane.y;
-		PLAYER.plane.y = PLAYER.plane.y * cos(PLAYER.speed_rot)
-			- PLAYER.plane.x * sin(PLAYER.speed_rot);
-		PLAYER.plane.x = oldplaney * sin(PLAYER.speed_rot)
-			+ PLAYER.plane.x * cos(PLAYER.speed_rot);
+		olddiry = map->player.dir.y;
+		map->player.dir.y = map->player.dir.y * cos(map->player.speed_rot)
+			- map->player.dir.x * sin(map->player.speed_rot);
+		map->player.dir.x = olddiry * sin(map->player.speed_rot)
+			+ map->player.dir.x * cos(map->player.speed_rot);
+		oldplaney = map->player.plane.y;
+		map->player.plane.y = map->player.plane.y * cos(map->player.speed_rot)
+			- map->player.plane.x * sin(map->player.speed_rot);
+		map->player.plane.x = oldplaney * sin(map->player.speed_rot)
+			+ map->player.plane.x * cos(map->player.speed_rot);
 	}
 }

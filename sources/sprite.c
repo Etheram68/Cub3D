@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/12 15:02:56 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/20 21:43:46 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/07 13:48:43 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,7 +27,7 @@ void			draw_sprite(t_map *map, int y, unsigned int c)
 {
 	int		i;
 
-	i = SPRITE.save + (y * map->w_width);
+	i = map->csp.save + (y * map->w_width);
 	map->id.data[i] = c;
 }
 
@@ -39,12 +39,13 @@ void			draw_line_spr(t_map *map)
 
 	p = map->spr[map->spr_i].type;
 	c = 0;
-	y = SPRITE.start.y;
-	while (y < SPRITE.end.y)
+	y = map->csp.start.y;
+	while (y < map->csp.end.y)
 	{
-		SPRITE.tex.y = (((y * 256 - map->w_height * 128 +
-					SPRITE.s_height * 128) * 64) / SPRITE.s_height) / 256;
-		c = map->tex[4].data[64 * SPRITE.tex.y + SPRITE.tex.x];
+		map->csp.tex.y = (((y * 256 - map->w_height * 128 +
+					map->csp.s_height * 128) * 64)
+						/ map->csp.s_height) / 256;
+		c = map->tex[4].data[64 * map->csp.tex.y + map->csp.tex.x];
 		if (c != 0)
 			draw_sprite(map, y, c);
 		y++;
@@ -60,16 +61,17 @@ void			draw_spr(t_map *map, double *size)
 	while (i < map->spr_i)
 	{
 		calc_sprite(map, i);
-		SPRITE.save = SPRITE.start.x;
-		while (SPRITE.save < SPRITE.end.x)
+		map->csp.save = map->csp.start.x;
+		while (map->csp.save < map->csp.end.x)
 		{
-			SPRITE.tex.x = (int)(256 * (SPRITE.save - (-SPRITE.s_width /
-					2 + SPRITE.screen)) * 64 / SPRITE.s_width) / 256;
-			if (SPRITE.form.y > 0 && SPRITE.save > 0
-					&& SPRITE.save < map->w_width &&
-						SPRITE.form.y < size[SPRITE.save])
+			map->csp.tex.x = (int)(256 *
+				(map->csp.save - (-map->csp.s_width /
+					2 + map->csp.screen)) * 64 / map->csp.s_width) / 256;
+			if (map->csp.form.y > 0 && map->csp.save > 0
+					&& map->csp.save < map->w_width &&
+						map->csp.form.y < size[map->csp.save])
 				draw_line_spr(map);
-			SPRITE.save++;
+			map->csp.save++;
 		}
 		i++;
 	}

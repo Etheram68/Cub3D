@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/25 13:12:23 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/20 17:42:01 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/07 13:42:52 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,89 +15,79 @@
 
 void	draw(t_map *map, int x)
 {
-	RAY.len = (int)(map->w_height / RAY.dist);
-	RAY.start = -RAY.len / 2 + map->w_height / 2;
-	if (RAY.start < 0)
-		RAY.start = 0;
-	RAY.end = RAY.len / 2 + map->w_height / 2;
-	if (RAY.end >= map->w_height)
-		RAY.end = map->w_height - 1;
+	map->ray.len = (int)(map->w_height / map->ray.dist);
+	map->ray.start = -map->ray.len / 2 + map->w_height / 2;
+	if (map->ray.start < 0)
+		map->ray.start = 0;
+	map->ray.end = map->ray.len / 2 + map->w_height / 2;
+	if (map->ray.end >= map->w_height)
+		map->ray.end = map->w_height - 1;
 	draw_line(map, x);
 }
 
 void	rayon_dist(t_map *map)
 {
-	while (RAY.hit == 0)
+	while (map->ray.hit == 0)
 	{
-		if (RAY.side.y < RAY.side.x)
+		if (map->ray.side.y < map->ray.side.x)
 		{
-			RAY.side.y += RAY.delta.y;
-			RAY.map.y += RAY.step.y;
-			RAY.hit_side = 0;
+			map->ray.side.y += map->ray.delta.y;
+			map->ray.map.y += map->ray.step.y;
+			map->ray.hit_side = 0;
 		}
 		else
 		{
-			RAY.side.x += RAY.delta.x;
-			RAY.map.x += RAY.step.x;
-			RAY.hit_side = 1;
+			map->ray.side.x += map->ray.delta.x;
+			map->ray.map.x += map->ray.step.x;
+			map->ray.hit_side = 1;
 		}
-		if (map->map[RAY.map.y][RAY.map.x] == 1)
+		if (map->map[map->ray.map.y][map->ray.map.x] == 1)
 			dist_wall(map);
 	}
 }
 
 void	rayon_side(t_map *map)
 {
-	if (RAY.dir.y < 0)
+	if (map->ray.dir.y < 0)
 	{
-		RAY.step.y = -1;
-		RAY.side.y = (RAY.pos.y - (int)RAY.pos.y) * RAY.delta.y;
+		map->ray.step.y = -1;
+		map->ray.side.y = (map->ray.pos.y - (int)map->ray.pos.y)
+			* map->ray.delta.y;
 	}
 	else
 	{
-		RAY.step.y = 1;
-		RAY.side.y = ((int)RAY.pos.y + 1 - RAY.pos.y) * RAY.delta.y;
+		map->ray.step.y = 1;
+		map->ray.side.y = ((int)map->ray.pos.y + 1 - map->ray.pos.y)
+			* map->ray.delta.y;
 	}
-	if (RAY.dir.x < 0)
+	if (map->ray.dir.x < 0)
 	{
-		RAY.step.x = -1;
-		RAY.side.x = (RAY.pos.x - (int)RAY.pos.x) * RAY.delta.x;
+		map->ray.step.x = -1;
+		map->ray.side.x = (map->ray.pos.x - (int)map->ray.pos.x)
+			* map->ray.delta.x;
 	}
 	else
 	{
-		RAY.step.x = 1;
-		RAY.side.x = ((int)RAY.pos.x + 1 - RAY.pos.x) * RAY.delta.x;
+		map->ray.step.x = 1;
+		map->ray.side.x = ((int)map->ray.pos.x + 1 - map->ray.pos.x)
+			* map->ray.delta.x;
 	}
 }
-
-/*
-**	Initialisation des informations du rayon
-**	Ray.dir correspond a la direction ou vas le rayon
-**	PLAYER.plane correspond au plan de la camera du joueur (FOV)
-**	RAY.delta correspond a la distance que dois parcourir entre chaque coté
-*/
 
 void	init_rayon(t_map *map, int x)
 {
-	RAY.map.y = (int)RAY.pos.y;
-	RAY.map.x = (int)RAY.pos.x;
-	RAY.cam = 2 * x / (double)map->w_width - 1;
-	RAY.dir.x = PLAYER.dir.x + PLAYER.plane.x * RAY.cam;
-	RAY.dir.y = PLAYER.dir.y + PLAYER.plane.y * RAY.cam;
-	RAY.delta.x = fabs(1 / RAY.dir.x);
-	RAY.delta.y = fabs(1 / RAY.dir.y);
-	RAY.hit = 0;
-	RAY.dist = -1;
-	RAY.hit_side = -1;
-	RAY.sprite = 0;
+	map->ray.map.y = (int)map->ray.pos.y;
+	map->ray.map.x = (int)map->ray.pos.x;
+	map->ray.cam = 2 * x / (double)map->w_width - 1;
+	map->ray.dir.x = map->player.dir.x + map->player.plane.x * map->ray.cam;
+	map->ray.dir.y = map->player.dir.y + map->player.plane.y * map->ray.cam;
+	map->ray.delta.x = fabs(1 / map->ray.dir.x);
+	map->ray.delta.y = fabs(1 / map->ray.dir.y);
+	map->ray.hit = 0;
+	map->ray.dist = -1;
+	map->ray.hit_side = -1;
+	map->ray.sprite = 0;
 }
-
-/*
-**	@RAY.pos.x initialisation de la position du rayon x ou ce trouve le joueurs.
-**	@Ray.pos.Y initialisation de la position du rayon y ou ce trouve la joueurs.
-**	Envoie a la fonction Init Rayon, Rayon side, rayon dist.
-**	La boucle X parcoure chaque bande verticale
-*/
 
 int		ft_raycasting(t_map *map)
 {
@@ -105,14 +95,14 @@ int		ft_raycasting(t_map *map)
 	double			size[map->w_width];
 
 	x = -1;
-	RAY.pos.x = PLAYER.pos.x;
-	RAY.pos.y = PLAYER.pos.y;
+	map->ray.pos.x = map->player.pos.x;
+	map->ray.pos.y = map->player.pos.y;
 	while (++x < map->w_width)
 	{
 		init_rayon(map, x);
 		rayon_side(map);
 		rayon_dist(map);
-		size[x] = RAY.dist;
+		size[x] = map->ray.dist;
 		draw(map, x);
 	}
 	draw_spr(map, size);

@@ -6,7 +6,7 @@
 /*   By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/22 10:39:38 by frfrey       #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/20 17:40:37 by frfrey      ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/07 13:48:04 by frfrey      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -145,7 +145,7 @@ typedef struct	s_bitmap_image_header
 
 typedef struct	s_map
 {
-	t_sprcast	calc_spr;
+	t_sprcast	csp;
 	int			**map;
 	int			save;
 	int			map_heigth;
