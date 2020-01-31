@@ -6,7 +6,7 @@
 #    By: frfrey <frfrey@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/11/20 13:23:24 by frfrey       #+#   ##    ##    #+#        #
-#    Updated: 2020/01/07 15:36:06 by frfrey      ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/31 17:01:59 by frfrey      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -42,7 +42,7 @@ NAME		= 					Cub3D
 
 RM			= 					rm -f
 
-FLAGS 		= 					-Wall -Wextra -Werror -g3
+FLAGS 		= 					-Wall -Wextra -Werror -g3 -O3
 
 GFLAGS 		=					-lmlx -framework OpenGL -framework AppKit
 
